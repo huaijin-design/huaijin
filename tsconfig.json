@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "module": "umd",
+    "outDir": "./lib",
+    "jsx": "react",
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "types": [
+      "react",
+      "react-dom"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "huaijin",
+  "version": "0.0.1",
+  "description": "a react-based framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huaijin-design/huaijin.git"
+  },
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "watch:umd": "tsc -w -p .",
+    "watch:es": "tsc -w --module es6 --outDir ./es --project .",
+    "build": "tsc -p . && tsc --module es6 --outDir ./es -p ."
+  },
+  "author": "chenyueban <chenyueban@foxmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huaijin-design/huaijin/issues"
+  },
+  "homepage": "https://github.com/huaijin-design/huaijin#readme",
+  "devDependencies": {
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.1",
+    "@types/styled-components": "^4.1.10",
+    "cz-conventional-changelog": "^2.1.0",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "polished": "^2.3.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "styled-components": "^4.1.3",
+    "styled-theming": "^2.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
