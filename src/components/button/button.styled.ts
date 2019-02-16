@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { getComponentName } from '../../utils/displayName';
 
-const StyledButton = styled.button`
+const componentName: string = getComponentName('Button');
+
+const StyledButton = styled.button.attrs({
+  className: componentName,
+})`
   display: inline-block;
   padding: 0 1em;
   cursor: pointer;

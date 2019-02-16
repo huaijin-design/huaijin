@@ -15,13 +15,12 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "declaration": true,
-    "types": [
-      "react",
-      "react-dom"
-    ]
+    // "declaration": true,
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib",
+    "es",
+    "dist"
   ]
 }

@@ -14,9 +14,13 @@
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "watch:umd": "tsc -w -p .",
-    "watch:es": "tsc -w --module es6 --outDir ./es --project .",
-    "build": "tsc -p . && tsc --module es6 --outDir ./es -p ."
+    "watch:umd": "tsc -w",
+    "watch:es": "tsc -w --module es6 --outDir ./es",
+    "watch:dist": "tsc -w --module amd --outFile ./dist/huaijin.js",
+    "build:umd": "tsc",
+    "build:es": "tsc --module es6 --outDir ./es",
+    "build:dist": "tsc --module amd --outFile ./dist/huaijin.js",
+    "build": "npm run build:umd && npm run build:es && npm run build:dist"
   },
   "author": "chenyueban <chenyueban@foxmail.com>",
   "license": "MIT",
@@ -33,6 +37,10 @@
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.3"
+  },
+  "peerDependencies": {
+    "react": ">= 16.6.1",
+    "react-dom": ">= 16.6.1"
   },
   "dependencies": {
     "polished": "^2.3.3",
