@@ -1,0 +1,10 @@
+language: node_js
+sudo: required
+node_js:
+  - "lts/*"
+install:
+  - yarn
+jobs:
+  include:
+    - stage: unit tests
+      script: yarn test && yarn codecov

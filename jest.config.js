@@ -1,4 +1,7 @@
 module.exports = {
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest'
+  },
   coverageDirectory: './coverage/',
   collectCoverage: true,
   coveragePathIgnorePatterns: [
@@ -18,8 +21,6 @@ module.exports = {
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   collectCoverageFrom: [
     'src/components/**/*.{ts,tsx}',
-    '!src/components/*/style/index.tsx',
-    '!src/components/style/index.tsx',
     '!src/components/*/locale/index.tsx',
     '!src/components/*/__tests__/**/type.tsx',
     '!src/components/**/*/interface.{ts,tsx}',
@@ -28,6 +29,6 @@ module.exports = {
     '/dist/',
     '/es/',
     '/lib/',
-    'node_modules/',
+    'node_modules',
   ],
 };
