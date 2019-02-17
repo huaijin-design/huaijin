@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+.c0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 88px;
+  min-height: 32px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease;
+}
+
+.c0:hover {
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.c0:active {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.c0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.c0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+<button
+  className="hj-button c0"
+  type="button"
+>
+  Default
+</button>
+`;
