@@ -1,4 +1,5 @@
 module.exports = {
+  rootDir: 'src',
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
@@ -6,7 +7,10 @@ module.exports = {
   collectCoverage: true,
   coveragePathIgnorePatterns: [
     '/node_modules/',
-    '<rootDir>/src/index.ts',
+    '/src/index.ts',
+  ],
+  collectCoverageFrom: [
+    'src/tests/**/*.{ts,tsx}',
   ],
   moduleFileExtensions: [
     'ts',
@@ -18,13 +22,10 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
-  collectCoverageFrom: [
-    'src/tests/**/*.{ts,tsx}',
-  ],
   transformIgnorePatterns: [
     '/dist/',
     '/es/',
     '/lib/',
-    'node_modules',
+    '/node_modules/',
   ],
 };
