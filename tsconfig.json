@@ -15,12 +15,6 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    // "declaration": true,
-  },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es",
-    "dist"
-  ]
+    "skipLibCheck": true
+  }
 }

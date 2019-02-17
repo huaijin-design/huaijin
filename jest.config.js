@@ -18,12 +18,8 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   collectCoverageFrom: [
-    'src/components/**/*.{ts,tsx}',
-    '!src/components/*/locale/index.tsx',
-    '!src/components/*/__tests__/**/type.tsx',
-    '!src/components/**/*/interface.{ts,tsx}',
+    'src/tests/**/*.{ts,tsx}',
   ],
   transformIgnorePatterns: [
     '/dist/',
