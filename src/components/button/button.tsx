@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import StyledButton from './button.styled';
 import compose from '../../utils/compose';
 import { withTheme } from '../../utils/hocs';
-import { colors, fonts } from '../../themes/variable';
+import { buttonDefaultTheme } from '../../themes/theme';
 
 export type ButtonType = 'submit' | 'button' | 'reset';
 export interface ButtonProps {
@@ -28,14 +28,7 @@ class HJButton extends React.Component<ButtonProps, {}> {
 
   static defaultProps = {
     type: 'button',
-    theme: {
-      buttonDefaultFontSize: fonts.size,
-      buttonDefaultColor: colors.dark,
-      buttonDefaultBackground: colors.default,
-      buttonPrimaryFontSize: fonts.size,
-      buttonPrimaryColor: colors.white,
-      buttonPrimaryBackground: colors.primary,
-    },
+    theme: buttonDefaultTheme,
   };
 
   render() {
