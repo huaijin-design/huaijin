@@ -15,19 +15,22 @@ export const colors = {
   shadow: '#dedede',
 };
 
-export const shadow = css`
-  box-shadow: 0px 2px 4px ${transparentize(.25, colors.shadow)};
+export const shadow = (color: string = colors.shadow) => css`
+  box-shadow: 0px 2px 4px ${transparentize(.25, color)};
   &:hover {
-    box-shadow: 0px 6px 12px ${transparentize(.25, colors.shadow)};
+    box-shadow: 0px 6px 12px ${transparentize(.25, color)};
   }
   &:active {
-    box-shadow: 0px 2px 4px ${transparentize(.25, colors.shadow)};
+    box-shadow: 0px 2px 4px ${transparentize(.25, color)};
   }
 `;
 
 export const fonts = {
-  article: `Georgia,Cambria,'Times New Roman',Times,serif`,
-  body: `-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif`,
+  size: '14px',
+  family: {
+    article: `Georgia,Cambria,'Times New Roman',Times,serif`,
+    body: `-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif`,
+  },
 };
 
 export const reset = css`
@@ -35,7 +38,7 @@ export const reset = css`
   margin: 0;
   box-sizing: border-box;
   font-size: 14px;
-  font-family: ${fonts.body};
+  font-family: ${fonts.family.body};
   border: none;
   outline: none;
 `;
