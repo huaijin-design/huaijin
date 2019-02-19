@@ -1,10 +1,9 @@
 import styled, { css, ThemeProps } from 'styled-components';
 import { ButtonProps } from './button';
-import { getComponentName } from '../../utils/displayName';
 import { reset, shadow, transition } from '../../themes/variable';
 import { Theme } from '../../themes/theme';
 
-const componentName: string = getComponentName('button');
+export const componentName = 'HJButton';
 
 const basicStyle = ({ theme }: ThemeProps<Theme>) => css`
   font-size: ${theme.buttonDefaultFontSize};
@@ -41,7 +40,7 @@ const StyledButton = styled.button.attrs({
   ${transition}
 
   ${basicStyle}
-  ${({ theme, primary }) => primary && primaryStyle({ theme })}
+  ${({ theme, color }) => color === 'primary' && primaryStyle({ theme })}
 `;
 
 export default StyledButton;
