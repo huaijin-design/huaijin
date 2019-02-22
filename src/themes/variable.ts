@@ -15,15 +15,18 @@ export const colors = {
   shadow: '#dedede',
 };
 
-export const shadow = (color: string = colors.shadow) => css`
-  box-shadow: 0px 2px 4px ${transparentize(.25, color)};
-  &:hover {
-    box-shadow: 0px 6px 12px ${transparentize(.25, color)};
-  }
-  &:active {
+export const shadow = (color: string) => {
+  if (color === colors.default) { color = colors.shadow; }
+  return css`
     box-shadow: 0px 2px 4px ${transparentize(.25, color)};
-  }
-`;
+    &:hover {
+      box-shadow: 0px 6px 12px ${transparentize(.25, color)};
+    }
+    &:active {
+      box-shadow: 0px 2px 4px ${transparentize(.25, color)};
+    }
+  `;
+};
 
 export const fonts = {
   size: '14px',

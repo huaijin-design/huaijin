@@ -30,15 +30,15 @@ exports[`Button renders correctly 1`] = `
 }
 
 .c0:hover {
-  -webkit-transform: translateY(-2px);
-  -ms-transform: translateY(-2px);
-  transform: translateY(-2px);
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
 }
 
 .c0:active {
-  -webkit-transform: translateY(0px);
-  -ms-transform: translateY(0px);
-  transform: translateY(0px);
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
 }
 
 .c0:hover {
@@ -50,7 +50,8 @@ exports[`Button renders correctly 1`] = `
 }
 
 <button
-  className="hj-button c0"
+  className="HJButton c0"
+  color="default"
   type="button"
 >
   Default

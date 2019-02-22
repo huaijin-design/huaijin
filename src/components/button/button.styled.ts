@@ -1,22 +1,9 @@
-import styled, { css, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
+import { mapTheme } from '../../utils/styled-map';
 import { ButtonProps } from './button';
 import { reset, shadow, transition } from '../../themes/variable';
-import { Theme } from '../../themes/theme';
 
 export const componentName = 'HJButton';
-
-const basicStyle = ({ theme }: ThemeProps<Theme>) => css`
-  font-size: ${theme.buttonDefaultFontSize};
-  color: ${theme.buttonDefaultColor};
-  background-color: ${theme.buttonDefaultBackground};
-  ${shadow()};
-`;
-
-const primaryStyle = ({ theme }: ThemeProps<Theme>) => css`
-  color: ${theme.buttonPrimaryColor};
-  background-color: ${theme.buttonPrimaryBackground};
-  ${shadow(theme.buttonPrimaryBackground)};
-`;
 
 const StyledButton = styled.button.attrs({
   className: componentName,
@@ -32,15 +19,16 @@ const StyledButton = styled.button.attrs({
   min-height: 32px;
   border-radius: 2px;
   &:hover {
-    transform: translateY(-2px);
+    transform: translate3d(0, -2px, 0) scale3d(1.04, 1.04, 1.04);
   }
   &:active {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   ${transition}
-
-  ${basicStyle}
-  ${({ theme, color }) => color === 'primary' && primaryStyle({ theme })}
+  font-size: ${mapTheme('fontSize.button')};
+  color: ${mapTheme('color', 'color.button')};
+  background-color: ${mapTheme('color', 'background.button')};
+  ${mapTheme('color', 'shadow.button', shadow)};
 `;
 
 export default StyledButton;

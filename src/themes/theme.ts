@@ -1,22 +1,34 @@
 import { fonts, colors } from './variable';
 
 export const buttonDefaultTheme = {
-  buttonDefaultFontSize: fonts.size,
-  buttonDefaultColor: colors.dark,
-  buttonDefaultBackground: colors.default,
-  buttonPrimaryFontSize: fonts.size,
-  buttonPrimaryColor: colors.white,
-  buttonPrimaryBackground: colors.primary,
+  color: {
+    button: {
+      default: colors.dark,
+      primary: colors.white,
+    },
+  },
+  background: {
+    button: {
+      default: colors.default,
+      primary: colors.primary,
+    },
+  },
+  fontSize: {
+    button: fonts.size,
+  },
+  shadow: {
+    button: {
+      default: colors.shadow,
+      primary: colors.primary,
+    },
+  },
 };
 
 export interface Theme {
-  buttonDefaultFontSize: string;
-  buttonDefaultColor: string;
-  buttonDefaultBackground: string;
-
-  buttonPrimaryFontSize: string;
-  buttonPrimaryColor: string;
-  buttonPrimaryBackground: string;
+  color: any;
+  background: any;
+  fontSize: any;
+  shadow: any;
 }
 
 export const defaultTheme: Theme = {

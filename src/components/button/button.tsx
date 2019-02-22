@@ -27,6 +27,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: 'button',
+  color: 'default',
   theme: buttonDefaultTheme,
 };
 

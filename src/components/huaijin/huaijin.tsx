@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '../../themes/theme';
+import { deepMerge } from '../../utils/others';
 
 export interface HuaijinProps {
   theme: object;
@@ -10,7 +11,7 @@ export interface HuaijinProps {
 class Huaijin extends React.Component<HuaijinProps, {}> {
   render() {
     const { theme, children } = this.props;
-    const mergeTheme = { ...defaultTheme, ...theme };
+    const mergeTheme = deepMerge(defaultTheme, theme);
     return <ThemeProvider theme={mergeTheme}>{children}</ThemeProvider>;
   }
 }
