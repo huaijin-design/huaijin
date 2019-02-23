@@ -3,7 +3,7 @@ import Button, { componentName } from './button.styled';
 import { buttonDefaultTheme } from '../../themes/theme';
 
 export type ButtonType = 'submit' | 'button' | 'reset';
-export type ButtonColor = 'default' | 'primary';
+export type ButtonColor = 'default' | 'primary' | 'success' | 'warning' | 'danger';
 export interface ButtonProps {
   type?: ButtonType;
   onClick?: React.MouseEventHandler;
