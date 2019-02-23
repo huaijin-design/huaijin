@@ -1,4 +1,4 @@
-import styledMap from 'styled-map';
+import styledMap, { mapToTheme } from 'styled-map';
 
 const dotProp = (str: string, obj: any) => str
   .split('.')
@@ -18,6 +18,17 @@ export const mapTheme = (keyOrProp: string, key?: string, callback?: any) => (pr
     }
     return styledMap(keyOrProp, dot);
   }
+  return mapToTheme;
+};
+
+export const mapProp = (key: string) => (...tags: any[]) => (props: any) => {
+  const [strings, ...values] = tags;
+  let result = '';
+  strings.forEach((str: string, i: number) => {
+    result += str;
+    if (values[i]) { result += values[i]; }
+  });
+  if (props[key]) { return result; }
 };
 
 export default styledMap;

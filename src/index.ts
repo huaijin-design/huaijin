@@ -1,9 +1,9 @@
+import * as theme from './themes/theme';
+import * as variable from './themes/variable';
+
 export {
   Button,
   Huaijin
 } from './components';
 
-export {
-  defaultTheme,
-  buttonDefaultTheme
-} from './themes/theme';
+export { theme, variable };

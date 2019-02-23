@@ -9,8 +9,8 @@ export interface ButtonProps {
   onClick?: React.MouseEventHandler;
   className?: string;
 
-  ghost?: boolean;
   color?: ButtonColor;
+  ghost?: boolean;
 }
 
 Button.displayName = componentName;

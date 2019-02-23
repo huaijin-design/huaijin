@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { mapTheme } from '../../utils/styled-map';
+import { mapTheme, mapProp } from '../../utils/styled-map';
 import { ButtonProps } from './button';
-import { reset, shadow, transition } from '../../themes/variable';
+import { reset, colors, shadow, transition } from '../../themes/variable';
 
 export const componentName = 'HJButton';
 
@@ -9,6 +9,23 @@ const PropColor = css`
   color: ${mapTheme('color', 'color.button')};
   background-color: ${mapTheme('color', 'background.button')};
   ${mapTheme('color', 'shadow.button', shadow)};
+`;
+
+const PropGhost = css`
+  ${mapProp('ghost')`
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid ${colors.white};
+    color: ${colors.white};
+    &:hover {
+      color: ${colors.dark};
+      background-color: ${colors.white};
+    }
+    &:active {
+      color: ${colors.dark};
+      background-color: ${colors.white};
+    }
+  `}
 `;
 
 const StyledButton = styled.button.attrs({
@@ -33,8 +50,8 @@ const StyledButton = styled.button.attrs({
     transform: translate3d(0,0,0) scale3d(1,1,1);
   }
 
-
   ${PropColor}
+  ${PropGhost}
 `;
 
 export default StyledButton;
