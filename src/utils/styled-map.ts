@@ -14,7 +14,6 @@ export const mapTheme = (keyOrProp: string, key?: string, callback?: any) => (pr
   } else if (key) {
     const dot = dotProp(key, props.theme);
     if (callback) {
-      console.log(dot[props[keyOrProp]]);
       return callback(dot[props[keyOrProp]]);
     }
     return styledMap(keyOrProp, dot);
