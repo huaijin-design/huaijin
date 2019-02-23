@@ -47,5 +47,5 @@ export const reset = css`
 `;
 
 export const transition = css`
-  transition: box-shadow .3s ease, transform .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease;
 `;

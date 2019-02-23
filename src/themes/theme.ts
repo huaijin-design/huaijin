@@ -1,6 +1,9 @@
 import { fonts, colors } from './variable';
 
 export const buttonDefaultTheme = {
+  fontSize: {
+    button: fonts.size,
+  },
   color: {
     button: {
       default: colors.dark,
@@ -18,9 +21,6 @@ export const buttonDefaultTheme = {
       warning: colors.warning,
       danger: colors.danger,
     },
-  },
-  fontSize: {
-    button: fonts.size,
   },
   shadow: {
     button: {
