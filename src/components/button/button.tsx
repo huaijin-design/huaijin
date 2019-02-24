@@ -13,6 +13,7 @@ export interface ButtonProps {
   ghost?: boolean;
   disabled?: boolean;
   round?: boolean;
+  text?: boolean;
 }
 
 Button.displayName = componentName;

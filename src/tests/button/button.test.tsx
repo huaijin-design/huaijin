@@ -115,7 +115,6 @@ describe('Button', () => {
       <Button disabled={true}>Disabled</Button>
     ).toJSON();
     expect(json).toHaveStyleRule('box-shadow', 'none');
-    expect(json).toHaveStyleRule('border', 'none');
     expect(json).toHaveStyleRule('cursor', 'not-allowed');
     expect(json).toHaveStyleRule('background-color', transparentize(.88, variable.colors.dark));
     expect(json).toHaveStyleRule('color', transparentize(.74, variable.colors.dark));
@@ -154,5 +153,13 @@ describe('Button', () => {
       <Button round={true}>Round</Button>
     ).toJSON();
     expect(json).toHaveStyleRule('border-radius', '100px');
+  });
+
+  it('renders style rules -> text', () => {
+    const json = renderer.create(
+      <Button text={true}>Text</Button>
+    ).toJSON();
+    expect(json).toHaveStyleRule('box-shadow', 'none');
+    expect(json).toHaveStyleRule('background', 'none');
   });
 });

@@ -32,7 +32,6 @@ const PropGhost = css`
 const PropDisabled = css`
   ${mapProp('disabled')`
     box-shadow: none;
-    border: none;
     cursor: not-allowed;
     background-color: ${transparentize(.88, colors.dark)};
     color: ${transparentize(.74, colors.dark)};
@@ -50,6 +49,13 @@ const PropDisabled = css`
 const PropRound = css`
   ${mapProp('round')`
     border-radius: 100px;
+  `}
+`;
+
+const PropText = css`
+  ${mapProp('text')`
+    box-shadow: none;
+    background: none;
   `}
 `;
 
@@ -80,6 +86,7 @@ const StyledButton = styled.button.attrs({
   ${PropGhost}
   ${PropDisabled}
   ${PropRound}
+  ${PropText}
 `;
 
 export default StyledButton;
