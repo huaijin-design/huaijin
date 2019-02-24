@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { mapTheme, mapProp } from '../../utils/styled-map';
 import { ButtonProps } from './button';
 import { reset, colors, shadow, transition } from '../../themes/variable';
+import { transparentize } from 'polished';
 
 export const componentName = 'HJButton';
 
@@ -24,6 +25,24 @@ const PropGhost = css`
     &:active {
       color: ${colors.dark};
       background-color: ${colors.white};
+    }
+  `}
+`;
+
+const PropDisabled = css`
+  ${mapProp('disabled')`
+    box-shadow: none;
+    border: none;
+    cursor: not-allowed;
+    background-color: ${transparentize(.88, colors.dark)};
+    color: ${transparentize(.74, colors.dark)};
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+    &:active {
+      box-shadow: none;
+      transform: none;
     }
   `}
 `;
@@ -52,6 +71,7 @@ const StyledButton = styled.button.attrs({
 
   ${PropColor}
   ${PropGhost}
+  ${PropDisabled}
 `;
 
 export default StyledButton;

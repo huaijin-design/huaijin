@@ -11,6 +11,7 @@ export interface ButtonProps {
 
   color?: ButtonColor;
   ghost?: boolean;
+  disabled?: boolean;
 }
 
 Button.displayName = componentName;

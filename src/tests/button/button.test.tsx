@@ -74,7 +74,7 @@ describe('Button', () => {
 
   it('renders style rules -> ghost', () => {
     const json = renderer.create(
-      <Button ghost={true}>Danger</Button>
+      <Button ghost={true}>Ghost</Button>
     ).toJSON();
     expect(json).toHaveStyleRule('box-shadow', 'none');
     expect(json).toHaveStyleRule('background', 'transparent');
@@ -104,6 +104,45 @@ describe('Button', () => {
     expect(json).toHaveStyleRule(
       'background-color',
       variable.colors.white,
+      {
+        modifier: ':active',
+      }
+    );
+  });
+
+  it('renders style rules -> disabled', () => {
+    const json = renderer.create(
+      <Button disabled={true}>Disabled</Button>
+    ).toJSON();
+    expect(json).toHaveStyleRule('box-shadow', 'none');
+    expect(json).toHaveStyleRule('border', 'none');
+    expect(json).toHaveStyleRule('cursor', 'not-allowed');
+    expect(json).toHaveStyleRule('background-color', transparentize(.88, variable.colors.dark));
+    expect(json).toHaveStyleRule('color', transparentize(.74, variable.colors.dark));
+    expect(json).toHaveStyleRule(
+      'box-shadow',
+      'none',
+      {
+        modifier: ':hover',
+      }
+    );
+    expect(json).toHaveStyleRule(
+      'transform',
+      'none',
+      {
+        modifier: ':hover',
+      }
+    );
+    expect(json).toHaveStyleRule(
+      'box-shadow',
+      'none',
+      {
+        modifier: ':active',
+      }
+    );
+    expect(json).toHaveStyleRule(
+      'transform',
+      'none',
       {
         modifier: ':active',
       }
