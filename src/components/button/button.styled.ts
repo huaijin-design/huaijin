@@ -59,6 +59,17 @@ const PropText = css`
   `}
 `;
 
+const PropCircle = css`
+  ${mapProp('circle')`
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    overflow: hidden;
+    border-radius: 50%;
+  `}
+`;
+
 const StyledButton = styled.button.attrs({
   className: componentName,
 })<ButtonProps>`
@@ -87,6 +98,7 @@ const StyledButton = styled.button.attrs({
   ${PropDisabled}
   ${PropRound}
   ${PropText}
+  ${PropCircle}
 `;
 
 export default StyledButton;

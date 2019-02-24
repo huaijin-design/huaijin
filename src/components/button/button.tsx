@@ -14,6 +14,7 @@ export interface ButtonProps {
   disabled?: boolean;
   round?: boolean;
   text?: boolean;
+  circle?: boolean;
 }
 
 Button.displayName = componentName;

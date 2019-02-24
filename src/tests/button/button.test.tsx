@@ -162,4 +162,16 @@ describe('Button', () => {
     expect(json).toHaveStyleRule('box-shadow', 'none');
     expect(json).toHaveStyleRule('background', 'none');
   });
+
+  it('renders style rules -> circle', () => {
+    const json = renderer.create(
+      <Button circle={true}>C</Button>
+    ).toJSON();
+    expect(json).toHaveStyleRule('min-width', '32px');
+    expect(json).toHaveStyleRule('width', '32px');
+    expect(json).toHaveStyleRule('height', '32px');
+    expect(json).toHaveStyleRule('padding', '4px');
+    expect(json).toHaveStyleRule('overflow', 'hidden');
+    expect(json).toHaveStyleRule('border-radius', '50%');
+  });
 });
