@@ -47,6 +47,12 @@ const PropDisabled = css`
   `}
 `;
 
+const PropRound = css`
+  ${mapProp('round')`
+    border-radius: 100px;
+  `}
+`;
+
 const StyledButton = styled.button.attrs({
   className: componentName,
 })<ButtonProps>`
@@ -60,6 +66,7 @@ const StyledButton = styled.button.attrs({
   min-width: 88px;
   min-height: 32px;
   border-radius: 2px;
+  padding: 5px 10px;
   font-size: ${mapTheme('fontSize.button')};
   ${transition}
   &:hover {
@@ -72,6 +79,7 @@ const StyledButton = styled.button.attrs({
   ${PropColor}
   ${PropGhost}
   ${PropDisabled}
+  ${PropRound}
 `;
 
 export default StyledButton;

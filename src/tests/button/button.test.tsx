@@ -148,4 +148,11 @@ describe('Button', () => {
       }
     );
   });
+
+  it('renders style rules -> round', () => {
+    const json = renderer.create(
+      <Button round={true}>Round</Button>
+    ).toJSON();
+    expect(json).toHaveStyleRule('border-radius', '100px');
+  });
 });
