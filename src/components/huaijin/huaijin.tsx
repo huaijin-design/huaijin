@@ -8,12 +8,15 @@ export interface HuaijinProps {
   children: React.ReactChild;
 }
 
-class Huaijin extends React.Component<HuaijinProps, {}> {
-  render() {
-    const { theme, children } = this.props;
-    const mergeTheme = deepMerge(defaultTheme, theme);
-    return <ThemeProvider theme={mergeTheme}>{children}</ThemeProvider>;
-  }
+function Huaijin({ theme, children }: HuaijinProps) {
+  const mergeTheme = deepMerge(defaultTheme, theme);
+  return (
+    <ThemeProvider theme={mergeTheme}>
+      <>
+        {children}
+      </>
+    </ThemeProvider>
+  );
 }
 
 export default Huaijin;
