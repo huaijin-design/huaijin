@@ -1,14 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders correctly 1`] = `
-.c0 {
+.emotion-0 {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 14px;
   font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
   border: none;
   outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
@@ -17,44 +20,427 @@ exports[`Button renders correctly 1`] = `
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(255,255,255,0);
-  min-width: 88px;
-  min-height: 32px;
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
   border-radius: 2px;
   padding: 5px 10px;
-  font-size: 14px;
-  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
-  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
-  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
-  color: #707070;
   background-color: #f5f5f5;
+  color: #707070;
   box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
 }
 
-.c0:hover {
+.emotion-0:hover {
   -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
   -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
   transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
 }
 
-.c0:active {
+.emotion-0:active {
   -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
   -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
   transform: translate3d(0,0,0) scale3d(1,1,1);
 }
 
-.c0:hover {
+.emotion-0:hover {
   box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
 }
 
-.c0:active {
+.emotion-0:active {
   box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
 }
 
 <button
-  className="HJButton c0"
-  color="default"
-  type="button"
+  className="emotion-0"
 >
   Default
+</button>
+`;
+
+exports[`Button renders style rules -> circle 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+<button
+  className="emotion-0"
+>
+  C
+</button>
+`;
+
+exports[`Button renders style rules -> disabled 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  box-shadow: none;
+  cursor: not-allowed;
+  background-color: rgba(112,112,112,0.12);
+  color: rgba(112,112,112,0.26);
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+.emotion-0:hover {
+  box-shadow: none;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.emotion-0:active {
+  box-shadow: none;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+<button
+  className="emotion-0"
+  disabled={true}
+>
+  Disabled
+</button>
+`;
+
+exports[`Button renders style rules -> ghost 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  box-shadow: none;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+.emotion-0:hover {
+  color: #707070;
+  background-color: #fff;
+}
+
+.emotion-0:active {
+  color: #707070;
+  background-color: #fff;
+}
+
+<button
+  className="emotion-0"
+>
+  Ghost
+</button>
+`;
+
+exports[`Button renders style rules -> primary 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  background-color: #1867C0;
+  color: #fff;
+  box-shadow: 0px 2px 4px rgba(24,103,192,0.75);
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(24,103,192,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(24,103,192,0.75);
+}
+
+<button
+  className="emotion-0"
+>
+  Default
+</button>
+`;
+
+exports[`Button renders style rules -> round 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  border-radius: 1em;
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+<button
+  className="emotion-0"
+>
+  Round
+</button>
+`;
+
+exports[`Button renders style rules -> text 1`] = `
+.emotion-0 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif;
+  border: none;
+  outline: none;
+  -webkit-transition: box-shadow .3s ease,-webkit-transform .3s ease,background .3s ease;
+  -webkit-transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  min-width: 6.285714285714286em;
+  min-height: 2.2857142857142856em;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #707070;
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+  box-shadow: none;
+  background: none;
+}
+
+.emotion-0:hover {
+  -webkit-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  -ms-transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+  transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+}
+
+.emotion-0:active {
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0,0,0) scale3d(1,1,1);
+  transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.emotion-0:hover {
+  box-shadow: 0px 6px 12px rgba(222,222,222,0.75);
+}
+
+.emotion-0:active {
+  box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
+}
+
+<button
+  className="emotion-0"
+>
+  Text
 </button>
 `;

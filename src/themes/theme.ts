@@ -1,45 +1,33 @@
+import styled, { CreateStyled } from '@emotion/styled';
+import { em as emBase } from 'polished';
 import { fonts, colors } from './variable';
 
-export const buttonDefaultTheme = {
-  fontSize: {
-    button: fonts.size,
-  },
+export const defaultTheme = {
+  fontSize: fonts.size,
   color: {
-    button: {
-      default: colors.dark,
-      primary: colors.white,
-      success: colors.white,
-      warning: colors.white,
-      danger: colors.white,
-    },
-  },
-  background: {
-    button: {
-      default: colors.default,
-      primary: colors.primary,
-      success: colors.success,
-      warning: colors.warning,
-      danger: colors.danger,
-    },
-  },
-  shadow: {
-    button: {
-      default: colors.shadow,
-      primary: colors.primary,
-      success: colors.success,
-      warning: colors.warning,
-      danger: colors.danger,
-    },
+    white: colors.white,
+    default: colors.default,
+    primary: colors.primary,
+    success: colors.success,
+    warning: colors.warning,
+    danger: colors.danger,
+    dark: colors.dark,
   },
 };
 
 export interface Theme {
-  color: any;
-  background: any;
-  fontSize: any;
-  shadow: any;
+  fontSize: string;
+  color: {
+    white: string
+    default: string
+    primary: string
+    success: string
+    warning: string
+    danger: string
+    dark: string
+  };
 }
 
-export const defaultTheme: Theme = {
-  ...buttonDefaultTheme,
-};
+export const em = (pxval: string | number) => emBase(pxval, defaultTheme.fontSize);
+
+export default styled as CreateStyled<Theme>;
