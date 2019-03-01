@@ -1,91 +1,31 @@
-import styled, { css } from 'styled-components';
-import { mapTheme, mapProp } from '../../utils/styled-map';
+import { css } from '@emotion/core';
+import styled, { em } from '../../themes/theme';
 import { ButtonProps } from './button';
-import { reset, colors, shadow, transition } from '../../themes/variable';
+import { reset, shadow } from '../../themes/variable';
 import { transparentize } from 'polished';
 
-export const componentName = 'HJButton';
+export const componentName = 'hj-button';
 
-const PropColor = css`
-  color: ${mapTheme('color', 'color.button')};
-  background-color: ${mapTheme('color', 'background.button')};
-  ${mapTheme('color', 'shadow.button', shadow)};
+const baseFont = ({ theme }: ButtonProps) => css`
+  font-size: ${theme.fontSize};
 `;
 
-const PropGhost = css`
-  ${mapProp('ghost')`
-    box-shadow: none;
-    background: transparent;
-    border: 1px solid ${colors.white};
-    color: ${colors.white};
-    &:hover {
-      color: ${colors.dark};
-      background-color: ${colors.white};
-    }
-    &:active {
-      color: ${colors.dark};
-      background-color: ${colors.white};
-    }
-  `}
+const transition = css`
+  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
 `;
 
-const PropDisabled = css`
-  ${mapProp('disabled')`
-    box-shadow: none;
-    cursor: not-allowed;
-    background-color: ${transparentize(.88, colors.dark)};
-    color: ${transparentize(.74, colors.dark)};
-    &:hover {
-      box-shadow: none;
-      transform: none;
-    }
-    &:active {
-      box-shadow: none;
-      transform: none;
-    }
-  `}
-`;
-
-const PropRound = css`
-  ${mapProp('round')`
-    border-radius: 100px;
-  `}
-`;
-
-const PropText = css`
-  ${mapProp('text')`
-    box-shadow: none;
-    background: none;
-  `}
-`;
-
-const PropCircle = css`
-  ${mapProp('circle')`
-    min-width: 32px;
-    width: 32px;
-    height: 32px;
-    padding: 4px;
-    overflow: hidden;
-    border-radius: 50%;
-  `}
-`;
-
-const StyledButton = styled.button.attrs({
-  className: componentName,
-})<ButtonProps>`
-  ${reset}
+const baseStyles = ({ theme }: ButtonProps) => css`
+  label: ${componentName};
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
   -webkit-tap-highlight-color: rgba(255,255,255,0);
 
-  min-width: 88px;
-  min-height: 32px;
+  min-width: ${em('88px')};
+  min-height: ${em('32px')};
   border-radius: 2px;
   padding: 5px 10px;
-  font-size: ${mapTheme('fontSize.button')};
-  ${transition}
   &:hover {
     transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
   }
@@ -93,12 +33,94 @@ const StyledButton = styled.button.attrs({
     transform: translate3d(0,0,0) scale3d(1,1,1);
   }
 
-  ${PropColor}
-  ${PropGhost}
-  ${PropDisabled}
-  ${PropRound}
-  ${PropText}
-  ${PropCircle}
+  background-color: ${theme.color.default};
+  color: ${theme.color.dark};
+  ${shadow()}
+`;
+
+const primaryStyles = ({ theme, primary }: ButtonProps) =>
+  primary &&
+  css`
+    label: primary;
+    background-color: ${theme.color.primary};
+    color: ${theme.color.white};
+    ${shadow(theme.color.primary)}
+  `;
+
+const ghostStyles = ({ theme, ghost }: ButtonProps) =>
+  ghost &&
+  css`
+    label: ghost;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid ${theme.color.white};
+    color: ${theme.color.white};
+    &:hover {
+      color: ${theme.color.dark};
+      background-color: ${theme.color.white};
+    }
+    &:active {
+      color: ${theme.color.dark};
+      background-color: ${theme.color.white};
+    }
+  `;
+
+const disabledStyles = ({ theme, disabled }: ButtonProps) =>
+  disabled &&
+  css`
+    label: disabled;
+    box-shadow: none;
+    cursor: not-allowed;
+    background-color: ${transparentize(.88, theme.color.dark)};
+    color: ${transparentize(.74, theme.color.dark)};
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+    &:active {
+      box-shadow: none;
+      transform: none;
+    }
+  `;
+
+const roundStyles = ({ round }: ButtonProps) =>
+  round &&
+  css`
+    label: round;
+    border-radius: 1em;
+  `;
+
+const textStyles = ({ text }: ButtonProps) =>
+  text &&
+  css`
+    label: text;
+    box-shadow: none;
+    background: none;
+  `;
+
+const circleStyles = ({ circle }: ButtonProps) =>
+  circle &&
+  css`
+    label: circle;
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    overflow: hidden;
+    border-radius: 50%;
+  `;
+
+const StyledButton = styled.button<ButtonProps>`
+  ${reset}
+  ${transition}
+  ${baseFont}
+  ${baseStyles}
+  ${primaryStyles}
+  ${ghostStyles}
+  ${disabledStyles}
+  ${roundStyles}
+  ${textStyles}
+  ${circleStyles}
 `;
 
 export default StyledButton;

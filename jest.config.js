@@ -28,4 +28,5 @@ module.exports = {
     '/lib/',
     '/node_modules/',
   ],
+  snapshotSerializers: ['jest-emotion']
 };

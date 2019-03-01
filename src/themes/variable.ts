@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from '@emotion/core';
 import { transparentize } from 'polished';
 
 export const colors = {
@@ -15,7 +15,7 @@ export const colors = {
   shadow: '#dedede',
 };
 
-export const shadow = (color: string) => {
+export const shadow = (color: string = colors.default) => {
   if (color === colors.default) { color = colors.shadow; }
   return css`
     box-shadow: 0px 2px 4px ${transparentize(.25, color)};
@@ -40,12 +40,7 @@ export const reset = css`
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 14px;
   font-family: ${fonts.family.body};
   border: none;
   outline: none;
-`;
-
-export const transition = css`
-  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
 `;

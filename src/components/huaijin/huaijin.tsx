@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'emotion-theming';
 import { defaultTheme } from '../../themes/theme';
 import { deepMerge } from '../../utils/others';
+import markdownCodeStyle from './markdownCodeStyle';
+import { Global } from '@emotion/core';
 
 export interface HuaijinProps {
   theme: object;
@@ -13,6 +15,9 @@ function Huaijin({ theme, children }: HuaijinProps) {
   return (
     <ThemeProvider theme={mergeTheme}>
       <>
+        <Global
+          styles={markdownCodeStyle}
+        />
         {children}
       </>
     </ThemeProvider>
