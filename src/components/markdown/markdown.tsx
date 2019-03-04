@@ -4,6 +4,7 @@ import markdownPre from './components/markdownPre';
 import markdownCode from './components/markdownCode';
 import markdownTable from './components/markdownTable';
 import markdownBlockquote from './components/markdownBlockquote';
+import markdownA from './components/markdownA';
 
 export interface MarkdownProps {
   children: string;
@@ -26,6 +27,9 @@ const Markdown = ({ children }: MarkdownProps) => {
           },
           blockquote: {
             component: markdownBlockquote,
+          },
+          a: {
+            component: markdownA,
           },
         },
       }}
