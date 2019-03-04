@@ -8,9 +8,10 @@ import markdownA from './components/markdownA';
 
 export interface MarkdownProps {
   children: string;
+  overrides: any;
 }
 
-const Markdown = ({ children }: MarkdownProps) => {
+const Markdown = ({ children, overrides }: MarkdownProps) => {
   return (
     <MarkdownBase
       className="hj-markdown"
@@ -31,6 +32,7 @@ const Markdown = ({ children }: MarkdownProps) => {
           a: {
             component: markdownA,
           },
+          ...overrides,
         },
       }}
       children={children}
