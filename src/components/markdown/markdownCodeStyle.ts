@@ -1,6 +1,17 @@
 import { css } from '@emotion/core';
 
 const markdownCodeStyle = css`
+/* Code blocks */
+pre[class*="hj-markdown-pre"] {
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 1.2em 1.4em;
+  word-wrap: normal;
+  word-break: normal;
+}
+
 code[class*="language-"] {
   color: #525252;
   background: none;
@@ -13,18 +24,6 @@ code[class*="language-"] {
   word-wrap: normal;
   tab-size: 8;
   hyphens: none;
-}
-
-/* Code blocks */
-pre[class*="hj-markdown"] {
-  /* background-color: #f6f8fa; */
-  border-radius: 3px;
-  font-size: 85%;
-  line-height: 1.45;
-  overflow: auto;
-  padding: 16px;
-  word-wrap: normal;
-  word-break: normal;
 }
 
 /* Inline code */
