@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 
 const markdownCodeStyle = css`
 code[class*="language-"] {
-  color: #24292e;
+  color: #525252;
   background: none;
   font-family: Operator Mono Lig;
   font-size: 16px;
@@ -17,7 +17,7 @@ code[class*="language-"] {
 
 /* Code blocks */
 pre[class*="hj-markdown"] {
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
   border-radius: 3px;
   font-size: 85%;
   line-height: 1.45;
@@ -32,40 +32,39 @@ pre[class*="hj-markdown"] {
   padding: .1em;
   border-radius: .3em;
   white-space: normal;
-  background: #f5f5f5;
 }
-
+/* comment */
 .token.comment,
 .token.blockquote {
-  color: #4CAF50;
+  color: #b3b3b3;
 }
 
 .token.cdata {
   color: #183691;
 }
-
+/* punctuation */
 .token.doctype,
 .token.punctuation,
 .token.variable,
 .token.macro.property {
-  color: #333;
+  color: #525252;
 }
-
+/* keyword */
 .token.operator,
 .token.important,
 .token.keyword,
 .token.rule,
 .token.builtin {
-  color: #d73a49;
+  color: #e96900;
 }
-
+/* string */
 .token.string,
 .token.url,
 .token.regex,
 .token.attr-value {
-  color: #183691;
+  color: #42b983;
 }
-
+/* number boolean */
 .token.property,
 .token.number,
 .token.boolean,
@@ -75,15 +74,15 @@ pre[class*="hj-markdown"] {
 .token.symbol,
 .token.command,
 .token.code {
-  color: #0086b3;
+  color: #ae81ff;
 }
-
+/* tag */
 .token.tag,
 .token.selector,
 .token.prolog {
-  color: #22863a;
+  color: #f44336;
 }
-
+/* function */
 .token.function,
 .token.namespace,
 .token.pseudo-element,
@@ -93,7 +92,7 @@ pre[class*="hj-markdown"] {
 .token.id,
 .token.url-reference .token.variable,
 .token.attr-name {
-  color: #6f42c1;
+  color: #0092db;
 }
 
 .token.entity {
@@ -135,7 +134,7 @@ pre[class*="hj-markdown"] {
 }
 
 .language-markup .token.tag .token.punctuation {
-  color: #333;
+  color: #525252;
 }
 
 /* CSS */
@@ -155,7 +154,7 @@ code.language-yaml {
 
 /* Ruby */
 .language-ruby .token.function {
-  color: #333;
+  color: #525252;
 }
 
 /* Markdown */
