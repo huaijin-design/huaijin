@@ -8,13 +8,15 @@ import markdownA from './components/markdownA';
 
 export interface MarkdownProps {
   children: string;
+  className?: string;
   overrides: any;
 }
 
-const Markdown = ({ children, overrides }: MarkdownProps) => {
+const Markdown = ({ className, children, overrides }: MarkdownProps) => {
+  const classes = ['hj-markdown', className].filter((v) => v).join(' ');
   return (
     <MarkdownBase
-      className="hj-markdown"
+      className={classes}
       options={{
         overrides: {
           table: {
