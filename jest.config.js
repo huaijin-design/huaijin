@@ -10,11 +10,11 @@ module.exports = {
     '/src/index.ts',
   ],
   moduleFileExtensions: [
-    'ts',
-    'tsx',
     'js',
     'jsx',
     'json',
+    'ts',
+    'tsx',
   ],
   snapshotSerializers: ['jest-emotion']
 };
