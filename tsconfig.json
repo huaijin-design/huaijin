@@ -15,6 +15,7 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   }
 }
