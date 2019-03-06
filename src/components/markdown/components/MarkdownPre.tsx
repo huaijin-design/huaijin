@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 import Refractor from 'react-refractor';
 import 'refractor';
 
-const MarkdownPre = ({ children: { props: { className, children } } }: any) => {
+const MarkdownPre = ({ children }: any): React.ReactElement => {
+  const { props: { className, children: value } } = children;
   const language = className ? className.split('-')[1] : '';
   const RefractorStyled: any = styled(Refractor)`
     position: relative;
@@ -25,7 +26,7 @@ const MarkdownPre = ({ children: { props: { className, children } } }: any) => {
     <RefractorStyled
       className="hj-markdown-pre"
       language={language || 'js'}
-      value={children}
+      value={value}
     />
   );
 };
