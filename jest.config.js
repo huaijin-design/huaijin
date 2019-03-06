@@ -1,7 +1,7 @@
 module.exports = {
   rootDir: 'src',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.(ts|tsx)?$': 'ts-jest'
   },
   coverageDirectory: './coverage/',
   collectCoverage: true,
@@ -20,13 +20,13 @@ module.exports = {
     'json',
   ],
   testPathIgnorePatterns: [
-    '/node_modules/',
+    '<rootDir>/node_modules/',
   ],
   transformIgnorePatterns: [
-    '/dist/',
-    '/es/',
-    '/lib/',
-    '/node_modules/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/es/',
+    '<rootDir>/lib/',
   ],
   snapshotSerializers: ['jest-emotion']
 };
