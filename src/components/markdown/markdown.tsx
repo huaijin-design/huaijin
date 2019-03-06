@@ -9,36 +9,37 @@ import MarkdownA from './components/markdownA';
 export interface MarkdownProps {
   children: string;
   className?: string;
-  overrides: any;
+  overrides?: any;
 }
 
 const Markdown = ({ className, children, overrides }: MarkdownProps) => {
   const classes = ['hj-markdown', className].filter((v) => v).join(' ');
   return (
-    <MarkdownBase
-      className={classes}
-      options={{
-        overrides: {
-          table: {
-            component: MarkdownTable,
+    <div className={classes}>
+      <MarkdownBase
+        options={{
+          overrides: {
+            table: {
+              component: MarkdownTable,
+            },
+            pre: {
+              component: MarkdownPre,
+            },
+            code: {
+              component: MarkdownCode,
+            },
+            blockquote: {
+              component: MarkdownBlockquote,
+            },
+            a: {
+              component: MarkdownA,
+            },
+            ...overrides,
           },
-          pre: {
-            component: MarkdownPre,
-          },
-          code: {
-            component: MarkdownCode,
-          },
-          blockquote: {
-            component: MarkdownBlockquote,
-          },
-          a: {
-            component: MarkdownA,
-          },
-          ...overrides,
-        },
-      }}
-      children={children}
-    />
+        }}
+        children={children}
+      />
+    </div>
   );
 };
 
