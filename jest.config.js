@@ -10,7 +10,9 @@ module.exports = {
     '/src/index.ts',
   ],
   collectCoverageFrom: [
-    'src/tests/**/*.{ts,tsx}',
+    'src/components/**/*.{ts,tsx}',
+    'src/components/*/__tests__/**/type.tsx',
+    'src/components/**/*/interface.{ts,tsx}',
   ],
   moduleFileExtensions: [
     'ts',
@@ -24,7 +26,6 @@ module.exports = {
     '<rootDir>/dist/',
     '<rootDir>/es/',
     '<rootDir>/lib/',
-    '<rootDir>/src/components',
   ],
   transformIgnorePatterns: [
     '<rootDir>/node_modules/',

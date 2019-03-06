@@ -82,8 +82,6 @@ typings/
 .vscode
 .idea
 
-package-lock.json
-yarn.lock
 .DS_Store
 
 dist/
