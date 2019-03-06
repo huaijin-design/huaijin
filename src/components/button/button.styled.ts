@@ -87,7 +87,7 @@ const roundStyles = ({ round }: ButtonProps) =>
   round &&
   css`
     label: round;
-    border-radius: 1em;
+    border-radius: ${em('16px')};
   `;
 
 const textStyles = ({ text }: ButtonProps) =>
