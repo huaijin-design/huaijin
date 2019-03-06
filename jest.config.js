@@ -21,6 +21,10 @@ module.exports = {
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/es/',
+    '<rootDir>/lib/',
+    '<rootDir>/src/components',
   ],
   transformIgnorePatterns: [
     '<rootDir>/node_modules/',
