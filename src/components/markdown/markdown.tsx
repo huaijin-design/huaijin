@@ -1,10 +1,10 @@
 import * as React from 'react';
 import MarkdownBase from 'markdown-to-jsx';
-import markdownPre from './components/markdownPre';
-import markdownCode from './components/markdownCode';
-import markdownTable from './components/markdownTable';
-import markdownBlockquote from './components/markdownBlockquote';
-import markdownA from './components/markdownA';
+import MarkdownPre from './components/markdownPre';
+import MarkdownCode from './components/markdownCode';
+import MarkdownTable from './components/markdownTable';
+import MarkdownBlockquote from './components/markdownBlockquote';
+import MarkdownA from './components/markdownA';
 
 export interface MarkdownProps {
   children: string;
@@ -20,19 +20,19 @@ const Markdown = ({ className, children, overrides }: MarkdownProps) => {
       options={{
         overrides: {
           table: {
-            component: markdownTable,
+            component: MarkdownTable,
           },
           pre: {
-            component: markdownPre,
+            component: MarkdownPre,
           },
           code: {
-            component: markdownCode,
+            component: MarkdownCode,
           },
           blockquote: {
-            component: markdownBlockquote,
+            component: MarkdownBlockquote,
           },
           a: {
-            component: markdownA,
+            component: MarkdownA,
           },
           ...overrides,
         },
