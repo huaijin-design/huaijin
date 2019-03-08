@@ -20,7 +20,9 @@
     "build:umd": "rm -rf lib/ && tsc -d",
     "build:es": "rm -rf es/ && tsc -d --module es6 --outDir ./es",
     "build:dist": "rm -rf dist/ && tsc -d --module amd --outFile ./dist/huaijin.js",
-    "build": "npm run build:umd && npm run build:es && npm run build:dist",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "webpack -p --config webpack.config.prod.js",
     "test": "jest --no-cache --runInBand --config jest.config.js",
     "test:watch": "jest --watchAll --config jest.config.js",
     "codecov": "codecov"
@@ -32,11 +34,18 @@
   },
   "homepage": "https://github.com/huaijin-design/huaijin#readme",
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.9",
     "@types/prop-types": "^15.7.0",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.1",
     "@types/react-test-renderer": "^16.8.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.0",
     "codecov": "^3.2.0",
     "cz-conventional-changelog": "^2.1.0",
     "jest": "^24.1.0",
@@ -46,7 +55,9 @@
     "tslint": "^5.12.1",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   },
   "peerDependencies": {
     "react": ">= 16.6.1",
