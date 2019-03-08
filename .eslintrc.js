@@ -1,10 +1,7 @@
 module.exports = {
-  plugins: [
-    '@typescript-eslint',
-    'eslint-comments',
-    'jest',
-  ],
+  plugins: ['@typescript-eslint', 'eslint-comments', 'jest'],
   extends: [
+    'airbnb',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
@@ -20,5 +17,10 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 'off',
+    'no-trailing-spaces': 'error',
+    'space-infix-ops': 'error',
+    'object-curly-spacing': 'error',
+    '@typescript-eslint/type-annotation-spacing': 'error',
+    'comma-spacing': 'error',
   },
-}
+};
