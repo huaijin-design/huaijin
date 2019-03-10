@@ -24,5 +24,6 @@ module.exports = {
     'comma-spacing': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'no-restricted-syntax': 'off',
+    'import/no-cycle': 'off',
   },
 };

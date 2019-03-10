@@ -5,10 +5,10 @@ import { MarkdownPre, MarkdownCode, MarkdownTable, MarkdownBlockquote, MarkdownA
 export interface MarkdownProps {
   children: string;
   className?: string;
-  overrides?: any;
+  overrides?: object;
 }
 
-const Markdown = ({ className, children, overrides }: MarkdownProps) => {
+const Markdown: React.FunctionComponent<MarkdownProps> = ({ className, children, overrides }: MarkdownProps): React.ReactElement => {
   const classes = ['hj-markdown', className].filter((v) => v).join(' ');
   return (
     <div className={classes}>
@@ -33,8 +33,9 @@ const Markdown = ({ className, children, overrides }: MarkdownProps) => {
             ...overrides,
           },
         }}
-        children={children}
-      />
+      >
+        {children}
+      </MarkdownBase>
     </div>
   );
 };

@@ -14,15 +14,13 @@
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "watch:umd": "tsc -w",
-    "watch:es": "tsc -w --module es6 --outDir ./es",
-    "watch:dist": "tsc -w --module amd --outFile ./dist/huaijin.js",
-    "build:umd": "rm -rf lib/ && tsc -d",
+    "watch": "tsc -w --module es6 --outDir ./es",
+    "build:umd": "rm -rf lib/ && tsc -d --module umd --outDir ./lib",
     "build:es": "rm -rf es/ && tsc -d --module es6 --outDir ./es",
-    "build:dist": "rm -rf dist/ && tsc -d --module amd --outFile ./dist/huaijin.js",
+    "build:dist": "webpack -p --config webpack.config.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "build": "webpack -p --config webpack.config.js",
+    "build": "yarn build:umd & yarn build:es & yarn build:dist",
     "test": "jest --no-cache --runInBand --config jest.config.js",
     "test:watch": "jest --watchAll --config jest.config.js",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./",
@@ -83,6 +81,7 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-refractor": "^1.0.1",
+    "refractor": "^2.6.2",
     "styled-map": "^3.2.0-rc.1"
   },
   "config": {

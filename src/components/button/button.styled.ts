@@ -1,44 +1,40 @@
-import { css } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/core';
+import { transparentize } from 'polished';
 import styled, { em } from '../../themes/theme';
 import { ButtonProps } from './button';
 import { reset, shadow } from '../../themes/variable';
-import { transparentize } from 'polished';
 
 export const componentName = 'hj-button';
 
-const baseFont = ({ theme }: ButtonProps) => css`
-  font-size: ${theme.fontSize};
-`;
+type StylesCss = SerializedStyles | false | undefined;
 
-const transition = css`
-  transition: box-shadow .3s ease,transform .3s ease,background .3s ease;
-`;
-
-const baseStyles = ({ theme }: ButtonProps) => css`
+const baseStyles = ({ theme }: ButtonProps): SerializedStyles => css`
   label: ${componentName};
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
   min-width: ${em('88px')};
   min-height: ${em('32px')};
   border-radius: 2px;
   padding: 5px 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
   &:hover {
-    transform: translate3d(0,-2px,0) scale3d(1.04,1.04,1.04);
+    transform: translate3d(0, -2px, 0) scale3d(1.04, 1.04, 1.04);
   }
   &:active {
-    transform: translate3d(0,0,0) scale3d(1,1,1);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 
+  font-size: ${theme.fontSize};
   background-color: ${theme.color.default};
   color: ${theme.color.dark};
   ${shadow()}
 `;
 
-const primaryStyles = ({ theme, primary }: ButtonProps) =>
+const primaryStyles = ({ theme, primary }: ButtonProps): StylesCss =>
   primary &&
   css`
     label: primary;
@@ -47,7 +43,7 @@ const primaryStyles = ({ theme, primary }: ButtonProps) =>
     ${shadow(theme.color.primary)}
   `;
 
-const ghostStyles = ({ theme, ghost }: ButtonProps) =>
+const ghostStyles = ({ theme, ghost }: ButtonProps): StylesCss =>
   ghost &&
   css`
     label: ghost;
@@ -65,14 +61,14 @@ const ghostStyles = ({ theme, ghost }: ButtonProps) =>
     }
   `;
 
-const disabledStyles = ({ theme, disabled }: ButtonProps) =>
+const disabledStyles = ({ theme, disabled }: ButtonProps): StylesCss =>
   disabled &&
   css`
     label: disabled;
     box-shadow: none;
     cursor: not-allowed;
-    background-color: ${transparentize(.88, theme.color.dark)};
-    color: ${transparentize(.74, theme.color.dark)};
+    background-color: ${transparentize(0.88, theme.color.dark)};
+    color: ${transparentize(0.74, theme.color.dark)};
     &:hover {
       box-shadow: none;
       transform: none;
@@ -83,14 +79,14 @@ const disabledStyles = ({ theme, disabled }: ButtonProps) =>
     }
   `;
 
-const roundStyles = ({ round }: ButtonProps) =>
+const roundStyles = ({ round }: ButtonProps): StylesCss =>
   round &&
   css`
     label: round;
     border-radius: ${em('16px')};
   `;
 
-const textStyles = ({ text }: ButtonProps) =>
+const textStyles = ({ text }: ButtonProps): StylesCss =>
   text &&
   css`
     label: text;
@@ -98,7 +94,7 @@ const textStyles = ({ text }: ButtonProps) =>
     background: none;
   `;
 
-const circleStyles = ({ circle }: ButtonProps) =>
+const circleStyles = ({ circle }: ButtonProps): StylesCss =>
   circle &&
   css`
     label: circle;
@@ -112,8 +108,7 @@ const circleStyles = ({ circle }: ButtonProps) =>
 
 const StyledButton = styled.button<ButtonProps>`
   ${reset}
-  ${transition}
-  ${baseFont}
+
   ${baseStyles}
   ${primaryStyles}
   ${ghostStyles}

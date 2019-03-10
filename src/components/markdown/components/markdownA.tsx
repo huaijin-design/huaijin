@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const MarkdownA = ({ children, ...rest }: any) => {
-  const AStyled: any = styled.a`
+const MarkdownA: React.FunctionComponent = (props): React.ReactElement => {
+  const AStyled = styled.a`
     color: #42b983;
     text-decoration: none;
     &:hover {
@@ -12,8 +12,7 @@ const MarkdownA = ({ children, ...rest }: any) => {
   return (
     <AStyled
       className="hj-markdown-a"
-      children={children}
-      {...rest}
+      {...props}
     />
   );
 };

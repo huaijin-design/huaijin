@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Refractor from 'react-refractor';
 import 'refractor';
 
-const MarkdownPre = ({ children }: any): React.ReactElement => {
+const MarkdownPre: React.FunctionComponent = ({ children }: any): React.ReactElement => {
   const { props: { className, children: value } } = children;
   const language = className ? className.split('-')[1] : '';
   const RefractorStyled: any = styled(Refractor)`

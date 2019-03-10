@@ -1,6 +1,6 @@
-import StyledButton, { componentName } from './button.styled';
 import { withTheme } from 'emotion-theming';
 import * as PropTypes from 'prop-types';
+import StyledButton, { componentName } from './button.styled';
 import { defaultTheme } from '../../themes/theme';
 
 export interface ButtonProps extends BaseProps {

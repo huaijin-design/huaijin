@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const MarkdownCode = ({ children }: any) => {
+const MarkdownCode: React.FunctionComponent = ({ children }: any): React.ReactElement => {
   const CodeStyled: any = styled.code`
     background-color: #f8f8f8;
     border-radius: 3px;
@@ -10,10 +10,9 @@ const MarkdownCode = ({ children }: any) => {
     padding: .2em .4em;
   `;
   return (
-    <CodeStyled
-      className="hj-markdown-code"
-      children={children}
-    />
+    <CodeStyled className="hj-markdown-code">
+      {children}
+    </CodeStyled>
   );
 };
 

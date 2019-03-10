@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const MarkdownTable = ({ children }: any) => {
+const MarkdownTable: React.FunctionComponent = ({ children }: any): React.ReactElement => {
   const TableStyled = styled.table`
     border-spacing: 0;
     border-collapse: collapse;

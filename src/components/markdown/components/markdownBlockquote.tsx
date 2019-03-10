@@ -1,17 +1,16 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const MarkdownBlockquote = ({ children }: any) => {
-  const BlockquoteStyled: any = styled.blockquote`
+const MarkdownBlockquote: React.FunctionComponent = ({ children }: any): React.ReactElement => {
+  const BlockquoteStyled = styled.blockquote`
     padding: 1px 1.5em;
     margin: 1em 0;
     border-left: .4em solid #42b983;
   `;
   return (
-    <BlockquoteStyled
-      className="hj-markdown-blockquote"
-      children={children}
-    />
+    <BlockquoteStyled className="hj-markdown-blockquote">
+      {children}
+    </BlockquoteStyled>
   );
 };
 
