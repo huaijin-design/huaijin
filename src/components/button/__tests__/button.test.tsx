@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { Button } from '../..';
+import { Button } from '..';
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -12,42 +12,42 @@ describe('Button', () => {
 
   it('renders style rules -> primary', () => {
     const json = renderer.create(
-      <Button primary={true}>Default</Button>
+      <Button primary>Default</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
 
   it('renders style rules -> ghost', () => {
     const json = renderer.create(
-      <Button ghost={true}>Ghost</Button>
+      <Button ghost>Ghost</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
 
   it('renders style rules -> disabled', () => {
     const json = renderer.create(
-      <Button disabled={true}>Disabled</Button>
+      <Button disabled>Disabled</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
 
   it('renders style rules -> round', () => {
     const json = renderer.create(
-      <Button round={true}>Round</Button>
+      <Button round>Round</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
 
   it('renders style rules -> text', () => {
     const json = renderer.create(
-      <Button text={true}>Text</Button>
+      <Button text>Text</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
 
   it('renders style rules -> circle', () => {
     const json = renderer.create(
-      <Button circle={true}>C</Button>
+      <Button circle>C</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
