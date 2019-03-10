@@ -1,6 +1,10 @@
 import * as React from 'react';
 import MarkdownBase from 'markdown-to-jsx';
-import { MarkdownPre, MarkdownCode, MarkdownTable, MarkdownBlockquote, MarkdownA } from './components';
+import MarkdownTable from './components/markdownTable';
+import MarkdownPre from './components/markdownPre';
+import MarkdownCode from './components/markdownCode';
+import MarkdownBlockquote from './components/markdownBlockquote';
+import MarkdownA from './components/markdownA';
 
 export interface MarkdownProps {
   children: string;
