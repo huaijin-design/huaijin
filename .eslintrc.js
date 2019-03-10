@@ -23,5 +23,6 @@ module.exports = {
     '@typescript-eslint/type-annotation-spacing': 'error',
     'comma-spacing': 'error',
     '@typescript-eslint/no-var-requires': 'off',
+    'no-restricted-syntax': 'off',
   },
 };

@@ -18,16 +18,17 @@ export const defaultTheme = {
 export interface Theme {
   fontSize: string;
   color: {
-    white: string
-    default: string
-    primary: string
-    success: string
-    warning: string
-    danger: string
-    dark: string
+    white: string;
+    default: string;
+    primary: string;
+    success: string;
+    warning: string;
+    danger: string;
+    dark: string;
   };
 }
 
-export const em = (pxval: string | number) => emBase(pxval, defaultTheme.fontSize);
+export const em = (pxval: string | number): string =>
+  emBase(pxval, defaultTheme.fontSize);
 
 export default styled as CreateStyled<Theme>;

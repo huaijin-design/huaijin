@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
 
-export const getDisplayName = (Component: ComponentType) => {
+export const getDisplayName = (Component: ComponentType): string => {
   return Component.displayName || Component.name || 'Component';
 };
