@@ -290,9 +290,9 @@ exports[`Button renders style rules -> primary 1`] = `
   background-color: #f5f5f5;
   color: #707070;
   box-shadow: 0px 2px 4px rgba(222,222,222,0.75);
-  background-color: #1867C0;
+  background-color: #ff6f61;
   color: #fff;
-  box-shadow: 0px 2px 4px rgba(24,103,192,0.75);
+  box-shadow: 0px 2px 4px rgba(255,111,97,0.75);
 }
 
 .emotion-0:hover {
@@ -316,11 +316,11 @@ exports[`Button renders style rules -> primary 1`] = `
 }
 
 .emotion-0:hover {
-  box-shadow: 0px 6px 12px rgba(24,103,192,0.75);
+  box-shadow: 0px 6px 12px rgba(255,111,97,0.75);
 }
 
 .emotion-0:active {
-  box-shadow: 0px 2px 4px rgba(24,103,192,0.75);
+  box-shadow: 0px 2px 4px rgba(255,111,97,0.75);
 }
 
 <button

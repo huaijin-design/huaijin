@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Figure renders correctly 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  margin-top: 0.4em;
+  padding: 0 1em;
+  font-size: 0.9em;
+  line-height: 2.2;
+  text-align: center;
+  color: #c7c7c7;
+  position: relative;
+}
+
+.emotion-1::after {
+  content: '';
+  width: 20%;
+  height: 1px;
+  position: absolute;
+  left: 40%;
+  bottom: 0;
+  background-color: rgba(255,111,97,0.2);
+}
+
+<figure>
+  <div
+    className="emotion-0"
+  >
+    <span>
+      Depression is running through my head,
+      <br />
+      These thoughts make me think of death,
+      <br />
+      A darkness which blanks my mind,
+      <br />
+      A walk through the graveyard, what can I find?....
+    </span>
+  </div>
+  <figcaption
+    className="emotion-1"
+  >
+    Depression. By: Darren Harris
+  </figcaption>
+</figure>
+`;

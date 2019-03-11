@@ -1,13 +1,12 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { transparentize } from 'polished';
-import styled from '../../themes/theme';
-import { FigureProps } from './figure';
+import styled, { defaultTheme } from '../../themes/theme';
 import { colors } from '../../themes/variable';
 
 export const componentName = 'hj-figcaption';
 
-const baseStyles = ({ theme }: FigureProps): SerializedStyles => css`
+const baseStyles = ({ theme }: BaseProps): SerializedStyles => css`
   label: ${componentName};
   margin-top: 0.4em;
   padding: 0 1em;
@@ -27,8 +26,16 @@ const baseStyles = ({ theme }: FigureProps): SerializedStyles => css`
   }
 `;
 
-const StyledFigcaption = styled.figcaption<FigureProps>`
+const StyledFigcaption = styled.figcaption`
   ${baseStyles}
 `;
 
-export default withTheme(StyledFigcaption);
+const Figcaption = withTheme(StyledFigcaption);
+
+Figcaption.displayName = 'hj-figure';
+
+Figcaption.defaultProps = {
+  theme: defaultTheme,
+};
+
+export default Figcaption;

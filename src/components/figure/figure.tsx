@@ -1,19 +1,23 @@
 import * as React from 'react';
-import styled from '../../themes/theme';
-import Figcaption from './figcaption.styled';
+import * as PropTypes from 'prop-types';
+import { withTheme } from 'emotion-theming';
+import styled, { defaultTheme } from '../../themes/theme';
+import Figcaption from './figcaption';
+
+export const componentName = 'hj-figure';
 
 export interface FigureProps extends BaseProps {
   figcaption?: string;
-}
+};
 
 const FigureContent = styled.div`
-  label: hj-figure-content;
+  label: ${componentName}-content;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
-const Figure: React.FunctionComponent<FigureProps> = ({ children, figcaption }: FigureProps): React.ReactElement => {
+const FigureBase: React.FunctionComponent<FigureProps> = ({ children, figcaption }: FigureProps): React.ReactElement => {
   return (
     <figure>
       <FigureContent>
@@ -24,6 +28,18 @@ const Figure: React.FunctionComponent<FigureProps> = ({ children, figcaption }: 
       </Figcaption>
     </figure>
   )
+};
+
+const Figure = withTheme(FigureBase);
+
+Figure.displayName = componentName;
+
+Figure.propTypes = {
+  figcaption: PropTypes.string,
+};
+
+Figure.defaultProps = {
+  theme: defaultTheme,
 };
 
 export default Figure;
