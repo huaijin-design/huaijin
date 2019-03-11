@@ -25,5 +25,6 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'no-restricted-syntax': 'off',
     'import/no-cycle': 'off',
+    semi: ['error', 'always'],
   },
 };

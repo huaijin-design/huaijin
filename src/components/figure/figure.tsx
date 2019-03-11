@@ -27,7 +27,7 @@ const FigureBase: React.FunctionComponent<FigureProps> = ({ children, figcaption
         {figcaption}
       </Figcaption>
     </figure>
-  )
+  );
 };
 
 const Figure = withTheme(FigureBase);
