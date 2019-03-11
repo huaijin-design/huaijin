@@ -1,7 +1,7 @@
 import * as theme from './themes/theme';
 import * as variable from './themes/variable';
 
-export { Button, Huaijin, Markdown, Figure } from './components';
+export { Button, Huaijin, Markdown, Figure, Input } from './components';
 
 export { theme, variable };
 
