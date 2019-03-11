@@ -25,9 +25,18 @@ export const InputField = styled.div<InputFieldProps>`
     right: 0;
     bottom: 0;
     pointer-events: none;
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+    transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
     border-bottom: 2px solid
       ${({ theme }) => transparentize(0.58, theme.color.dark)};
+  }
+  &:hover {
+    &::before {
+      border-color: ${({ theme }) => transparentize(0.28, theme.color.dark)};
+    }
+    & > label {
+      color: ${({ theme, isFocused }) =>
+        !isFocused && transparentize(0.28, theme.color.dark)};
+    }
   }
   &::after {
     content: '';
@@ -36,8 +45,9 @@ export const InputField = styled.div<InputFieldProps>`
     right: 0;
     bottom: 0;
     pointer-events: none;
-    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    transform: scaleX(${({ isFocused }) => (isFocused ? 1 : 0)});
+    transform-origin: 0 0;
+    transition: transform 300ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    transform: scale3d(${({ isFocused }) => (isFocused ? 1 : 0)}, 1, 1);
     border-bottom: 2px solid ${({ theme }) => theme.color.primary};
   }
 `;
@@ -49,8 +59,9 @@ export const InputLabel = styled.label<InputFieldProps>`
   position: absolute;
   left: 0;
   top: 6px;
+  z-index: -1;
   transform-origin: top left;
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
   color: ${({ theme, isFocused }) =>
     isFocused ? theme.color.primary : transparentize(0.58, theme.color.dark)};
   ${({ isFocused, value, placeholder }) =>
@@ -62,6 +73,7 @@ export const InputBase = styled.input`
   label: hj-input-base;
   width: 100%;
   font-size: 16px;
+  background-color: transparent;
   border: none;
   outline: none;
   padding: 8px 0 8px;
