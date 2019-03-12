@@ -9,11 +9,13 @@
 ## TODO
 
 - [x] Markdown - 正在施工 🚧
+- [x] Huaijin
+- [x] Figure
 - [ ] Layout
 - [ ] Toggle
 - [ ] Form
 - [x] Button - 全新设计即将来临
-- [ ] Input
+- [x] Input - 正在施工 🚧
 - [ ] Switch
 - [ ] Radio
 - [ ] Checkbox
