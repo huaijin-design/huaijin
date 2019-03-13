@@ -11,10 +11,10 @@
     "javascript"
   ],
   "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "module": "lib/index.js",
+  "jsnext:main": "lib/index.js",
   "scripts": {
-    "watch": "cross-env NODE_ENV=production tsc -w --module es6 --outDir ./es",
+    "watch": "cross-env NODE_ENV=production tsc -w --module CommonJS --outDir ./lib",
     "build:cjs": "cross-env NODE_ENV=production rm -rf lib/ && tsc -d --module CommonJS --outDir ./lib",
     "build:es": "cross-env NODE_ENV=production rm -rf es/ && tsc -d --module es6 --outDir ./es",
     "build:dist": "cross-env NODE_ENV=production webpack -p --config webpack.config.js",

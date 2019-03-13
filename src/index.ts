@@ -12,6 +12,6 @@ declare global {
     id?: string;
     children?: React.ReactChild;
     onClick?: React.MouseEventHandler;
-    theme: theme.Theme;
+    theme?: theme.Theme;
   }
 }

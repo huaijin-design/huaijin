@@ -1,7 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { transparentize } from 'polished';
-import styled, { defaultTheme } from '../../themes/theme';
+import styled, { defaultTheme, Theme } from '../../themes/theme';
 import { colors } from '../../themes/variable';
 
 export const componentName = 'hj-figcaption';
@@ -22,7 +22,7 @@ const baseStyles = ({ theme }: BaseProps): SerializedStyles => css`
     position: absolute;
     left: 40%;
     bottom: 0;
-    background-color: ${transparentize(0.8, theme.color.primary)};
+    background-color: ${transparentize(0.8, (theme as Theme).color.primary)};
   }
 `;
 

@@ -24,7 +24,9 @@ module.exports = {
     'comma-spacing': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'no-restricted-syntax': 'off',
-    'import/no-cycle': 'off',
+    'react/require-default-props': 'off',
+    'react/default-props-match-prop-types': 'off',
+    'no-plusplus': 'off',
     semi: ['error', 'always'],
   },
 };

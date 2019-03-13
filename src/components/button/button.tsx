@@ -1,26 +1,47 @@
-import { withTheme } from 'emotion-theming';
+import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import StyledButton, { componentName } from './button.styled';
 import { defaultTheme } from '../../themes/theme';
+import omit from '../../utils/omit';
 
 export interface ButtonProps extends BaseProps {
   primary?: boolean;
   ghost?: boolean;
   disabled?: boolean;
-  round?: boolean;
   text?: boolean;
   circle?: boolean;
 }
 
-const Button = withTheme(StyledButton);
+const Button: React.FunctionComponent<ButtonProps> = ({
+  children,
+  className,
+  onClick,
+  ...others
+}: ButtonProps): React.ReactElement => {
 
-Button.displayName = componentName;
+  const otherProps = omit(others, [
+    'theme',
+    'primary',
+    'ghost',
+    'text',
+    'circle'
+  ]);
+
+  return (
+    <button
+      type="button"
+      className={className}
+      onClick={onClick}
+      {...otherProps}
+    >
+      <div className="hj-button-main">{children}</div>
+    </button>
+  );
+};
 
 Button.propTypes = {
   primary: PropTypes.bool,
   ghost: PropTypes.bool,
   disabled: PropTypes.bool,
-  round: PropTypes.bool,
   text: PropTypes.bool,
   circle: PropTypes.bool,
 };

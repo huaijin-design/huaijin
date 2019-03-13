@@ -31,13 +31,6 @@ describe('Button', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders style rules -> round', () => {
-    const json = renderer.create(
-      <Button round>Round</Button>
-    ).toJSON();
-    expect(json).toMatchSnapshot();
-  });
-
   it('renders style rules -> text', () => {
     const json = renderer.create(
       <Button text>Text</Button>

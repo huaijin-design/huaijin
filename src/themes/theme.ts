@@ -4,9 +4,10 @@ import { fonts, colors } from './variable';
 
 export const defaultTheme = {
   fontSize: fonts.size,
+  fontFamily: fonts.family.body,
   color: {
     white: colors.white,
-    default: colors.default,
+    grey: colors.grey,
     primary: colors.primary,
     success: colors.success,
     warning: colors.warning,
@@ -17,9 +18,10 @@ export const defaultTheme = {
 
 export interface Theme {
   fontSize: string;
+  fontFamily: string;
   color: {
     white: string;
-    default: string;
+    grey: string;
     primary: string;
     success: string;
     warning: string;
