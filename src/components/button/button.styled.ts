@@ -1,6 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { transparentize } from 'polished';
-import { withTheme } from 'emotion-theming';
 
 import styled, { Theme } from '../../themes/theme';
 import ButtonBase, { ButtonProps } from './button';
@@ -199,4 +198,4 @@ const StyledButton = styled(ButtonBase)<ButtonProps>`
 
 StyledButton.displayName = componentName;
 
-export default withTheme(StyledButton);
+export default StyledButton;

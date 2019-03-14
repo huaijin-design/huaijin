@@ -20,7 +20,7 @@ exports[`Button renders correctly 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
 }
 
 .emotion-0 > .hj-button-main {
@@ -86,7 +86,7 @@ exports[`Button renders style rules -> circle 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
   width: 1.3em;
   height: 1.3em;
   overflow: hidden;
@@ -147,7 +147,6 @@ exports[`Button renders style rules -> circle 1`] = `
 }
 
 <button
-  circle={true}
   className="emotion-0"
   type="button"
 >
@@ -179,7 +178,7 @@ exports[`Button renders style rules -> disabled 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
   cursor: not-allowed;
   color: #888;
 }
@@ -266,7 +265,7 @@ exports[`Button renders style rules -> ghost 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
   color: #fff;
 }
 
@@ -312,7 +311,6 @@ exports[`Button renders style rules -> ghost 1`] = `
 
 <button
   className="emotion-0"
-  ghost={true}
   type="button"
 >
   <div
@@ -343,7 +341,7 @@ exports[`Button renders style rules -> primary 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
 }
 
 .emotion-0 > .hj-button-main {
@@ -396,7 +394,6 @@ exports[`Button renders style rules -> primary 1`] = `
 
 <button
   className="emotion-0"
-  primary={true}
   type="button"
 >
   <div
@@ -427,7 +424,7 @@ exports[`Button renders style rules -> text 1`] = `
   color: #404040;
   background: none;
   position: relative;
-  margin: .3em;
+  margin: 0.3em;
 }
 
 .emotion-0 > .hj-button-main {
@@ -481,7 +478,6 @@ exports[`Button renders style rules -> text 1`] = `
 
 <button
   className="emotion-0"
-  text={true}
   type="button"
 >
   <div
