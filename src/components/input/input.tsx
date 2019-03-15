@@ -5,8 +5,8 @@ import { InputControl, InputField, InputLabel, InputBase } from './input.styled'
 import { defaultTheme } from '../../themes/theme';
 
 export interface InputProps extends BaseProps {
-  value?: string;
-  onChange?: (e: string) => void;
+  value: string;
+  onChange: (e: string) => void;
 
   label?: string;
   placeholder?: string;
@@ -73,14 +73,16 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 const Input = withTheme(InputComponent);
 
 Input.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
 };
 
 Input.defaultProps = {
   theme: defaultTheme,
+  value: '',
+  onChange: () => {},
 };
 
 export default Input;

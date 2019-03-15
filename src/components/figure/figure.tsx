@@ -7,7 +7,7 @@ import Figcaption from './figcaption';
 export const componentName = 'hj-figure';
 
 export interface FigureProps extends BaseProps {
-  figcaption?: string;
+  figcaption: string;
 };
 
 const FigureContent = styled.div`
@@ -35,11 +35,12 @@ const Figure = withTheme(FigureBase);
 Figure.displayName = componentName;
 
 Figure.propTypes = {
-  figcaption: PropTypes.string,
+  figcaption: PropTypes.string.isRequired,
 };
 
 Figure.defaultProps = {
   theme: defaultTheme,
+  figcaption: '',
 };
 
 export default Figure;
