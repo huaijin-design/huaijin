@@ -13,6 +13,7 @@ export interface ButtonProps extends BaseProps {
   circle?: boolean;
   size?: PropSize;
   href?: string;
+  target?: '_self' | '_blank' | '_parent' | '_top';
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({

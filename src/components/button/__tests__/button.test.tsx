@@ -49,7 +49,7 @@ describe('Button', () => {
   it('renders style rules -> size', () => {
     ['small', 'large'].forEach(size => {
       const json = renderer.create(
-        <Button size={size as PropSize}>C</Button>
+        <Button size={size as PropSize}>size</Button>
       ).toJSON();
       expect(json).toMatchSnapshot();
     });
@@ -57,8 +57,12 @@ describe('Button', () => {
 
   it('renders style rules -> href', () => {
     const json = renderer.create(
-      <Button href='https://huaijin.io'>C</Button>
+      <Button href='https://huaijin.io'>href</Button>
+    ).toJSON();
+    const jsonWithTarget = renderer.create(
+      <Button href='https://huaijin.io' target='_blank'>hrefWithTarget</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
+    expect(jsonWithTarget).toMatchSnapshot();
   });
 });
