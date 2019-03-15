@@ -54,4 +54,11 @@ describe('Button', () => {
       expect(json).toMatchSnapshot();
     });
   });
+
+  it('renders style rules -> href', () => {
+    const json = renderer.create(
+      <Button href='https://huaijin.io'>C</Button>
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });

@@ -12,12 +12,14 @@ export interface ButtonProps extends BaseProps {
   text?: boolean;
   circle?: boolean;
   size?: PropSize;
+  href?: string;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
   children,
   className,
   onClick,
+  href,
   ...others
 }: ButtonProps): React.ReactElement => {
 
@@ -29,6 +31,19 @@ const Button: React.FunctionComponent<ButtonProps> = ({
     'circle',
     'size'
   ]);
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={className}
+        onClick={onClick}
+        {...otherProps}
+      >
+        <div className="hj-button-main">{children}</div>
+      </a>
+    );
+  }
 
   return (
     <button
@@ -55,6 +70,7 @@ Button.propTypes = {
     }
     return null;
   },
+  href: PropTypes.string,
 };
 
 Button.defaultProps = {
