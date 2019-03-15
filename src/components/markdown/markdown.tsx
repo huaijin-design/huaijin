@@ -15,7 +15,7 @@ export interface MarkdownProps {
 const Markdown: React.FunctionComponent<MarkdownProps> = ({ className, children, overrides }: MarkdownProps): React.ReactElement => {
   const classes = ['hj-markdown', className].filter((v) => v).join(' ');
   return (
-    <div className={classes}>
+    <article className={classes}>
       <MarkdownBase
         options={{
           overrides: {
@@ -40,7 +40,7 @@ const Markdown: React.FunctionComponent<MarkdownProps> = ({ className, children,
       >
         {children}
       </MarkdownBase>
-    </div>
+    </article>
   );
 };
 
