@@ -15,7 +15,11 @@ export const colors = {
 };
 
 export const fonts = {
-  size: '24px',
+  size: {
+    small: '16px',
+    default: '24px',
+    large: '38px',
+  },
   family: {
     article: `Georgia,Cambria,'Times New Roman',Times,serif`,
     body: `-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Open Sans','Helvetica Neue',sans-serif`,

@@ -28,5 +28,6 @@ module.exports = {
     'react/default-props-match-prop-types': 'off',
     'no-plusplus': 'off',
     semi: ['error', 'always'],
+    'import/named': 'off',
   },
 };

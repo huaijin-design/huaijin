@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { Button } from '..';
+import { PropSize } from '../button';
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -43,5 +44,14 @@ describe('Button', () => {
       <Button circle>C</Button>
     ).toJSON();
     expect(json).toMatchSnapshot();
+  });
+
+  it('renders style rules -> size', () => {
+    ['small', 'large'].forEach(size => {
+      const json = renderer.create(
+        <Button size={size as PropSize}>C</Button>
+      ).toJSON();
+      expect(json).toMatchSnapshot();
+    });
   });
 });

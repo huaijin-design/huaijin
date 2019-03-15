@@ -3,7 +3,11 @@ import { em as emBase } from 'polished';
 import { fonts, colors } from './variable';
 
 export const defaultTheme = {
-  fontSize: fonts.size,
+  fontSize: {
+    small: fonts.size.small,
+    default: fonts.size.default,
+    large: fonts.size.large,
+  },
   fontFamily: fonts.family.body,
   color: {
     white: colors.white,
@@ -17,7 +21,11 @@ export const defaultTheme = {
 };
 
 export interface Theme {
-  fontSize: string;
+  fontSize: {
+    small: string;
+    default: string;
+    large: string;
+  };
   fontFamily: string;
   color: {
     white: string;
@@ -31,6 +39,6 @@ export interface Theme {
 }
 
 export const em = (pxval: string | number): string =>
-  emBase(pxval, defaultTheme.fontSize);
+  emBase(pxval, defaultTheme.fontSize.default);
 
 export default styled as CreateStyled<Theme>;
