@@ -5,6 +5,7 @@ interface InputFieldProps {
   isFocused: boolean;
   value?: string;
   placeholder?: string;
+  error?: boolean;
 }
 
 export const InputControl = styled.div`
@@ -34,8 +35,8 @@ export const InputField = styled.div<InputFieldProps>`
       border-color: ${({ theme }) => transparentize(0.28, theme.color.dark)};
     }
     & > label {
-      color: ${({ theme, isFocused }) =>
-        !isFocused && transparentize(0.28, theme.color.dark)};
+      color: ${({ theme, isFocused, error }) =>
+        !isFocused && !error && transparentize(0.28, theme.color.dark)};
     }
   }
   &::after {
@@ -49,6 +50,12 @@ export const InputField = styled.div<InputFieldProps>`
     transition: transform 300ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     transform: scale3d(${({ isFocused }) => (isFocused ? 1 : 0)}, 1, 1);
     border-bottom: 2px solid ${({ theme }) => theme.color.primary};
+    ${({ theme, error }) =>
+      error &&
+      `
+      transform: scale3d(1, 1, 1);
+      border-color: ${theme.color.danger};
+    `}
   }
 `;
 
@@ -62,11 +69,15 @@ export const InputLabel = styled.label<InputFieldProps>`
   z-index: -1;
   transform-origin: top left;
   transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
-  color: ${({ theme, isFocused }) =>
-    isFocused ? theme.color.primary : transparentize(0.58, theme.color.dark)};
+  color: ${({ theme, isFocused, error }) =>
+    isFocused && !error
+      ? theme.color.primary
+      : transparentize(0.58, theme.color.dark)};
   ${({ isFocused, value, placeholder }) =>
     (isFocused || value || placeholder) &&
-    'transform: scale(0.75) translate3d(0, -18px, 0);'}
+    'transform: scale(0.75) translate3d(0, -18px, 0);'};
+
+  ${({ theme, error }) => error && `color: ${theme.color.danger}`}
 `;
 
 export const InputBase = styled.input`

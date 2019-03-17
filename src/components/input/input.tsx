@@ -10,6 +10,7 @@ export interface InputProps extends BaseProps {
 
   label?: string;
   placeholder?: string;
+  error?: boolean;
 }
 
 interface InputStates {
@@ -46,16 +47,21 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { value, label, placeholder } = this.props;
+    const { value, label, placeholder, error } = this.props;
     return (
       <InputControl>
-        <InputField isFocused={isFocused}>
+        <InputField isFocused={isFocused} error={error}>
           <InputLabel
             isFocused={isFocused}
             value={value}
             placeholder={placeholder}
+            error={error}
           >
-            {label}
+            {
+              error
+                ? `${label}: Error`
+                : label
+            }
           </InputLabel>
           <InputBase
             value={value}
@@ -77,6 +83,7 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  error: PropTypes.bool,
 };
 
 Input.defaultProps = {

@@ -7,7 +7,7 @@ export const colors = {
   primary: '#ff6f61',
   success: '#67c23a',
   warning: '#f90',
-  danger: '#f56c6c',
+  danger: '#ff1010',
   grey: '#888',
   disabledColor: 'd9d9d9',
   placeholder: '#c7c7c7',
