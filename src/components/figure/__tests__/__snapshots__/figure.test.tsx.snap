@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Figure renders correctly 1`] = `
+.emotion-2 {
+  position: relative;
+}
+
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -36,7 +40,80 @@ exports[`Figure renders correctly 1`] = `
   background-color: rgba(255,111,97,0.2);
 }
 
-<figure>
+<figure
+  className="emotion-2"
+>
+  <div
+    className="emotion-0"
+  >
+    <span>
+      Depression is running through my head,
+      <br />
+      These thoughts make me think of death,
+      <br />
+      A darkness which blanks my mind,
+      <br />
+      A walk through the graveyard, what can I find?....
+    </span>
+  </div>
+  <figcaption
+    className="emotion-1"
+  >
+    Depression. By: Darren Harris
+  </figcaption>
+</figure>
+`;
+
+exports[`Figure renders style rules -> effect 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  position: relative;
+}
+
+.emotion-2:hover > figcaption {
+  background-color: rgba(64,64,64,0.8);
+  opacity: 1;
+  -webkit-transform: scale3d(1,1,1);
+  -ms-transform: scale3d(1,1,1);
+  transform: scale3d(1,1,1);
+}
+
+.emotion-1 {
+  min-height: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.4em 1em 0.4em 0.4em;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
+  -webkit-transition: opacity 0.35s,transform 0.35s;
+  transition: opacity 0.35s,transform 0.35s;
+  -webkit-transform: scale3d(1.4,1.4,1);
+  -ms-transform: scale3d(1.4,1.4,1);
+  transform: scale3d(1.4,1.4,1);
+}
+
+<figure
+  className="emotion-2"
+>
   <div
     className="emotion-0"
   >

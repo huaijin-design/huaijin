@@ -1,14 +1,32 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { withTheme } from 'emotion-theming';
-import styled, { defaultTheme } from '../../themes/theme';
+import { transparentize } from 'polished';
+import styled, { defaultTheme, Theme } from '../../themes/theme';
 import Figcaption from './figcaption';
 
 export const componentName = 'hj-figure';
 
 export interface FigureProps extends BaseProps {
-  figcaption: string;
+  figcaption: React.ReactChild;
+  effect?: boolean;
 };
+
+const FigureStyled = styled.figure`
+  label: ${componentName}-styled;
+  position: relative;
+  ${({ theme, effect }: any) =>
+  effect &&
+  `
+    &:hover {
+      > figcaption {
+        background-color: ${transparentize(0.2, (theme as Theme).color.dark)};
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  `}
+`;
 
 const FigureContent = styled.div`
   label: ${componentName}-content;
@@ -17,16 +35,16 @@ const FigureContent = styled.div`
   align-items: center;
 `;
 
-const FigureBase: React.FunctionComponent<FigureProps> = ({ children, figcaption }: FigureProps): React.ReactElement => {
+const FigureBase: React.FunctionComponent<FigureProps> = ({ theme, children, figcaption, effect }: FigureProps): React.ReactElement => {
   return (
-    <figure>
+    <FigureStyled effect={effect} theme={theme}>
       <FigureContent>
         {children}
       </FigureContent>
-      <Figcaption>
+      <Figcaption effect={effect}>
         {figcaption}
       </Figcaption>
-    </figure>
+    </FigureStyled>
   );
 };
 
@@ -36,6 +54,7 @@ Figure.displayName = componentName;
 
 Figure.propTypes = {
   figcaption: PropTypes.string.isRequired,
+  effect: PropTypes.bool,
 };
 
 Figure.defaultProps = {

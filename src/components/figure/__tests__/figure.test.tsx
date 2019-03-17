@@ -16,4 +16,18 @@ describe('Figure', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> effect', () => {
+    const json = renderer.create(
+      <Figure figcaption="Depression. By: Darren Harris" effect>
+        <span>
+          Depression is running through my head,<br/>
+          These thoughts make me think of death,<br/>
+          A darkness which blanks my mind,<br/>
+          A walk through the graveyard, what can I find?....
+        </span>
+      </Figure>
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
