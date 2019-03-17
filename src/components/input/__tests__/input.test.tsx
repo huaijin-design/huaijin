@@ -78,4 +78,15 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> number', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        number
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
