@@ -47,11 +47,12 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { value, label, placeholder, error } = this.props;
+    const { theme, value, label, placeholder, error } = this.props;
     return (
       <InputControl>
-        <InputField isFocused={isFocused} error={error}>
+        <InputField theme={theme} isFocused={isFocused} error={error}>
           <InputLabel
+            theme={theme}
             isFocused={isFocused}
             value={value}
             placeholder={placeholder}
@@ -59,7 +60,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
           >
             {
               error
-                ? `${label}: Error`
+                ? `${label || ''} Error`
                 : label
             }
           </InputLabel>
