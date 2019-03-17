@@ -11,6 +11,7 @@ export interface InputProps extends BaseProps {
   label?: string;
   placeholder?: string;
   error?: boolean;
+  required?: boolean;
 }
 
 interface InputStates {
@@ -30,6 +31,13 @@ class InputComponent extends React.Component<InputProps, InputStates> {
     this.handleBlur = this.handleBlur.bind(this);
   }
 
+  public get label(): string {
+    const { label, error, required } = this.props;
+    if (error) return `${label || ''} Error`;
+    if (required) return `${label || ''} *`;
+    return label || '';
+  }
+
   public handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const { onChange } = this.props;
     if (onChange && e && e.target) {
@@ -47,7 +55,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { theme, value, label, placeholder, error } = this.props;
+    const { theme, value, placeholder, error, required } = this.props;
     return (
       <InputControl>
         <InputField theme={theme} isFocused={isFocused} error={error}>
@@ -58,11 +66,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
             placeholder={placeholder}
             error={error}
           >
-            {
-              error
-                ? `${label || ''} Error`
-                : label
-            }
+            {this.label}
           </InputLabel>
           <InputBase
             value={value}
@@ -70,6 +74,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             placeholder={placeholder}
+            required={required}
           />
         </InputField>
       </InputControl>
@@ -85,6 +90,7 @@ Input.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   error: PropTypes.bool,
+  required: PropTypes.bool,
 };
 
 Input.defaultProps = {

@@ -45,4 +45,15 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> required', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        required
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
