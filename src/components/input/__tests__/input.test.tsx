@@ -56,4 +56,15 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> disabled', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        disabled
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });

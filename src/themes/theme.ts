@@ -17,6 +17,7 @@ export const defaultTheme = {
     warning: colors.warning,
     danger: colors.danger,
     dark: colors.dark,
+    disabled: colors.disabledColor,
   },
 };
 
@@ -35,6 +36,7 @@ export interface Theme {
     warning: string;
     danger: string;
     dark: string;
+    disabled: string;
   };
 }
 

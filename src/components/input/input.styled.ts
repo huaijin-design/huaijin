@@ -6,6 +6,7 @@ interface InputFieldProps {
   value?: string;
   placeholder?: string;
   error?: boolean;
+  disabled?: boolean;
 }
 
 export const InputControl = styled.div`
@@ -29,14 +30,24 @@ export const InputField = styled.div<InputFieldProps>`
     transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
     border-bottom: 2px solid
       ${({ theme }) => transparentize(0.58, theme.color.dark)};
+    ${({ theme, disabled }) =>
+      disabled &&
+      `
+      border-bottom-color: ${theme.color.disabled};
+      border-bottom-style: dotted;
+    `}
   }
   &:hover {
     &::before {
-      border-color: ${({ theme }) => transparentize(0.28, theme.color.dark)};
+      border-color: ${({ theme, disabled }) =>
+        !disabled && transparentize(0.28, theme.color.dark)};
     }
     & > label {
-      color: ${({ theme, isFocused, error }) =>
-        !isFocused && !error && transparentize(0.28, theme.color.dark)};
+      color: ${({ theme, isFocused, error, disabled }) =>
+        !isFocused &&
+        !error &&
+        !disabled &&
+        transparentize(0.28, theme.color.dark)};
     }
   }
   &::after {
@@ -78,6 +89,11 @@ export const InputLabel = styled.label<InputFieldProps>`
     'transform: scale(0.75) translate3d(0, -18px, 0);'};
 
   ${({ theme, error }) => error && `color: ${theme.color.danger}`}
+  ${({ theme, disabled }) =>
+    disabled &&
+    `
+    color: ${theme.color.disabled};
+  `}
 `;
 
 export const InputBase = styled.input`

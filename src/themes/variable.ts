@@ -9,7 +9,7 @@ export const colors = {
   warning: '#f90',
   danger: '#ff1010',
   grey: '#888',
-  disabledColor: 'd9d9d9',
+  disabledColor: '#d9d9d9',
   placeholder: '#c7c7c7',
   shadow: '#dedede',
 };
