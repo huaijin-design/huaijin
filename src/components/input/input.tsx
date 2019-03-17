@@ -13,6 +13,7 @@ export interface InputProps extends BaseProps {
   error?: boolean;
   required?: boolean;
   disabled?: boolean;
+  password?: boolean;
 }
 
 interface InputStates {
@@ -56,7 +57,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { theme, value, placeholder, error, required, disabled } = this.props;
+    const { theme, value, placeholder, error, required, disabled, password } = this.props;
     return (
       <InputControl>
         <InputField
@@ -78,6 +79,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
           <InputBase
             value={value}
             onChange={this.handleChange}
+            type={password ? 'password' : 'text'}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             placeholder={placeholder}
@@ -100,6 +102,7 @@ Input.propTypes = {
   error: PropTypes.bool,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  password: PropTypes.bool,
 };
 
 Input.defaultProps = {

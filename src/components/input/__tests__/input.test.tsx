@@ -67,4 +67,15 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> password', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        password
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
