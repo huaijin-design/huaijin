@@ -6,10 +6,14 @@ import { colors } from '../../themes/variable';
 
 export const componentName = 'hj-figcaption';
 
+export interface FigcaptionProps extends BaseProps<HTMLElement> {
+  effect?: boolean;
+}
+
 const baseStyles = ({
   theme,
   effect,
-}: BaseProps | any): SerializedStyles => css`
+}: FigcaptionProps): SerializedStyles => css`
   label: ${componentName};
   ${!effect &&
     `

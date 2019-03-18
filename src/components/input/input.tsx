@@ -4,10 +4,7 @@ import { withTheme } from 'emotion-theming';
 import { InputControl, InputField, InputLabel, InputBase } from './input.styled';
 import { defaultTheme } from '../../themes/theme';
 
-export interface InputProps extends BaseProps {
-  value: string;
-  onChange: (e: string) => void;
-
+export interface InputProps extends Omit<BaseProps<HTMLInputElement>, 'onChange'>, React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   placeholder?: string;
   error?: boolean;

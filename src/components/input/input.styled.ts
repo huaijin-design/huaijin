@@ -3,7 +3,7 @@ import styled from '../../themes/theme';
 
 interface InputFieldProps {
   isFocused: boolean;
-  value?: string;
+  value?: string | number | string[];
   placeholder?: string;
   error?: boolean;
   disabled?: boolean;

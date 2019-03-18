@@ -5,7 +5,7 @@ import omit from '../../utils/omit';
 
 export type PropSize = 'small' | 'large' | 'default';
 
-export interface ButtonProps extends BaseProps {
+export interface ButtonProps extends BaseProps<HTMLButtonElement | HTMLAnchorElement> {
   primary?: boolean;
   ghost?: boolean;
   disabled?: boolean;

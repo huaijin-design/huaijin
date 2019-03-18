@@ -7,7 +7,7 @@ import Figcaption from './figcaption';
 
 export const componentName = 'hj-figure';
 
-export interface FigureProps extends BaseProps {
+export interface FigureProps extends BaseProps<HTMLElement> {
   figcaption: React.ReactChild;
   effect?: boolean;
 };
