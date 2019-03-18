@@ -1,4 +1,8 @@
-const compose = (...funcs: any[]): (() => {}) =>
-  funcs.reduce((a, b) => (...args: any[]) => a(b(...args)), (arg: any) => arg);
+function compose(...funcs: any[]): (...args: any[]) => any {
+  return funcs.reduce(
+    (acc, cur) => (...args: any[]) => acc(cur(...args)),
+    (arg: any) => arg,
+  );
+}
 
 export default compose;
