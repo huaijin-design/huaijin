@@ -101,4 +101,15 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> fullWidth', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        fullWidth
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });

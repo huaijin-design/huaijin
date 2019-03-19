@@ -317,6 +317,112 @@ exports[`Input renders style rules -> error 1`] = `
 </div>
 `;
 
+exports[`Input renders style rules -> fullWidth 1`] = `
+.emotion-2 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  position: relative;
+}
+
+.emotion-2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  -webkit-transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
+  transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
+  border-bottom: 2px solid rgba(64,64,64,0.4200000000000001);
+}
+
+.emotion-2:hover::before {
+  border-color: rgba(64,64,64,0.72);
+}
+
+.emotion-2:hover > label {
+  color: rgba(64,64,64,0.72);
+}
+
+.emotion-2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: -webkit-transform 300ms cubic-bezier(0,0,0.2,1) 0ms;
+  -webkit-transition: transform 300ms cubic-bezier(0,0,0.2,1) 0ms;
+  transition: transform 300ms cubic-bezier(0,0,0.2,1) 0ms;
+  -webkit-transform: scale3d(0,1,1);
+  -ms-transform: scale3d(0,1,1);
+  transform: scale3d(0,1,1);
+  border-bottom: 2px solid #ff6f61;
+}
+
+.emotion-0 {
+  max-width: 90%;
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: 6px;
+  z-index: -1;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
+  transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
+  color: rgba(64,64,64,0.4200000000000001);
+}
+
+.emotion-1 {
+  width: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 8px 0 8px;
+}
+
+.emotion-3 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+  className="emotion-3"
+>
+  <div
+    className="emotion-2"
+  >
+    <label
+      className="emotion-0"
+      value=""
+    >
+      
+    </label>
+    <input
+      className="emotion-1"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
 exports[`Input renders style rules -> label 1`] = `
 .emotion-3 {
   width: 200px;

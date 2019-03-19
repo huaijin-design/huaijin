@@ -14,6 +14,7 @@ export interface InputProps extends Omit<BaseProps<HTMLInputElement>, 'onChange'
   number?: boolean;
   multiline?: boolean;
   rows?: number;
+  fullWidth?: boolean;
 }
 
 interface InputStates {
@@ -72,9 +73,9 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { theme, value, placeholder, error, required, disabled, multiline, rows } = this.props;
+    const { theme, value, placeholder, error, required, disabled, multiline, rows, fullWidth } = this.props;
     return (
-      <InputControl>
+      <InputControl fullWidth={fullWidth}>
         <InputField
           theme={theme}
           isFocused={isFocused}
@@ -137,7 +138,8 @@ Input.propTypes = {
   password: PropTypes.bool,
   number: PropTypes.bool,
   multiline: PropTypes.bool,
-  rows: PropTypes.number
+  rows: PropTypes.number,
+  fullWidth: PropTypes.bool,
 };
 
 Input.defaultProps = {

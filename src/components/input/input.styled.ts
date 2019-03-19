@@ -1,6 +1,10 @@
 import { transparentize } from 'polished';
 import styled from '../../themes/theme';
 
+interface InputControlProps {
+  fullWidth?: boolean;
+}
+
 interface InputFieldProps {
   isFocused: boolean;
   value?: string | number | string[];
@@ -9,9 +13,9 @@ interface InputFieldProps {
   disabled?: boolean;
 }
 
-export const InputControl = styled.div`
+export const InputControl = styled.div<InputControlProps>`
   label: hj-input-control;
-  width: 200px;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : '200px')};
   display: flex;
   flex-direction: column;
 `;
