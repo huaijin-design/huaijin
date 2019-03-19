@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "moduleResolution": "node",

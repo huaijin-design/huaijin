@@ -3,3 +3,4 @@ export { Huaijin } from './huaijin';
 export { Markdown } from './markdown';
 export { Figure } from './figure';
 export { Input } from './input';
+export { Tabs } from './tabs';
