@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { withTheme } from 'emotion-theming';
-import { InputControl, InputField, InputLabel, InputBase } from './input.styled';
+import { InputControl, InputField, InputLabel, InputBase, TextAreaBase } from './input.styled';
 import { defaultTheme } from '../../themes/theme';
 
 export interface InputProps extends Omit<BaseProps<HTMLInputElement>, 'onChange'>, React.InputHTMLAttributes<HTMLInputElement> {
@@ -12,6 +12,8 @@ export interface InputProps extends Omit<BaseProps<HTMLInputElement>, 'onChange'
   disabled?: boolean;
   password?: boolean;
   number?: boolean;
+  multiline?: boolean;
+  rows?: number;
 }
 
 interface InputStates {
@@ -29,6 +31,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.textAreaHandleChange = this.textAreaHandleChange.bind(this);
   }
 
   public get label(): string {
@@ -52,6 +55,13 @@ class InputComponent extends React.Component<InputProps, InputStates> {
     }
   }
 
+  public textAreaHandleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
+    const { onChange } = this.props;
+    if (onChange && e && e.target) {
+      (onChange as any)(e.target.value);
+    }
+  }
+
   public handleFocus(): void {
     this.setState(({ isFocused }) => ({ isFocused: !isFocused }));
   };
@@ -62,7 +72,7 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { theme, value, placeholder, error, required, disabled } = this.props;
+    const { theme, value, placeholder, error, required, disabled, multiline, rows } = this.props;
     return (
       <InputControl>
         <InputField
@@ -81,16 +91,33 @@ class InputComponent extends React.Component<InputProps, InputStates> {
           >
             {this.label}
           </InputLabel>
-          <InputBase
-            value={value}
-            onChange={this.handleChange}
-            type={this.type}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            placeholder={placeholder}
-            required={required}
-            disabled={disabled}
-          />
+          {
+            multiline
+              ? (
+                <TextAreaBase
+                  value={value}
+                  onChange={this.textAreaHandleChange}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
+                  placeholder={placeholder}
+                  required={required}
+                  disabled={disabled}
+                  rows={rows}
+                />
+              )
+              : (
+                <InputBase
+                  value={value}
+                  onChange={this.handleChange}
+                  type={this.type}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
+                  placeholder={placeholder}
+                  required={required}
+                  disabled={disabled}
+                />
+              )
+          }
         </InputField>
       </InputControl>
     );
@@ -109,6 +136,8 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   password: PropTypes.bool,
   number: PropTypes.bool,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number
 };
 
 Input.defaultProps = {

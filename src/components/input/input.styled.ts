@@ -105,3 +105,15 @@ export const InputBase = styled.input`
   outline: none;
   padding: 8px 0 8px;
 `;
+
+export const TextAreaBase = styled.textarea`
+  label: hj-textarea-base;
+  width: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 8px 0 8px;
+  resize: vertical;
+  min-height: 32px;
+`;

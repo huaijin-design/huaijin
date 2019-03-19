@@ -89,4 +89,16 @@ describe('Input', () => {
     ).toJSON();
     expect(json).toMatchSnapshot();
   });
+
+  it('renders style rules -> multiline', () => {
+    const json = renderer.create(
+      <Input
+        value=''
+        onChange={() => {}}
+        multiline
+        rows={4}
+      />
+    ).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
