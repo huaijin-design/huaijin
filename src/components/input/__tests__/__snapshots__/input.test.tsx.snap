@@ -10,6 +10,7 @@ exports[`Input renders correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -116,6 +117,7 @@ exports[`Input renders style rules -> disabled 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-1 {
@@ -220,6 +222,7 @@ exports[`Input renders style rules -> error 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-1 {
@@ -397,6 +400,7 @@ exports[`Input renders style rules -> fullWidth 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 <div
@@ -433,6 +437,7 @@ exports[`Input renders style rules -> label 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -539,6 +544,7 @@ exports[`Input renders style rules -> multiline 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -647,6 +653,7 @@ exports[`Input renders style rules -> number 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -753,6 +760,7 @@ exports[`Input renders style rules -> password 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -859,6 +867,7 @@ exports[`Input renders style rules -> placeholder 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {
@@ -929,9 +938,9 @@ exports[`Input renders style rules -> placeholder 1`] = `
   -webkit-transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
   transition: 300ms cubic-bezier(0.25,0.8,0.5,1);
   color: rgba(64,64,64,0.4200000000000001);
-  -webkit-transform: scale(0.75) translate3d(0,-18px,0);
-  -ms-transform: scale(0.75) translate3d(0,-18px,0);
-  transform: scale(0.75) translate3d(0,-18px,0);
+  -webkit-transform: scale(0.75) translate3d(0,-24px,0);
+  -ms-transform: scale(0.75) translate3d(0,-24px,0);
+  transform: scale(0.75) translate3d(0,-24px,0);
 }
 
 <div
@@ -970,6 +979,7 @@ exports[`Input renders style rules -> required 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
 }
 
 .emotion-2 {

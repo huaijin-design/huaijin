@@ -27,7 +27,7 @@ class EventEmitter {
   }
 
   public remove(type: string): void {
-    delete this.listeners[type];
+    if (this.listeners[type]) delete this.listeners[type];
   }
 }
 
