@@ -18,6 +18,7 @@ export const InputControl = styled.div<InputControlProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '200px')};
   display: flex;
   flex-direction: column;
+  padding-top: 12px;
 `;
 
 export const InputField = styled.div<InputFieldProps>`
@@ -90,7 +91,7 @@ export const InputLabel = styled.label<InputFieldProps>`
       : transparentize(0.58, theme.color.dark)};
   ${({ isFocused, value, placeholder }) =>
     (isFocused || value || placeholder) &&
-    'transform: scale(0.75) translate3d(0, -18px, 0);'};
+    'transform: scale(0.75) translate3d(0, -24px, 0);'};
 
   ${({ theme, error }) => error && `color: ${theme.color.danger}`}
   ${({ theme, disabled }) =>
