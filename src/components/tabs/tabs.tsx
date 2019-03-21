@@ -7,7 +7,6 @@ import { TabsNav } from './tabs.styled';
 import { TabWrapper } from './tab.styled';
 import compose from '../../utils/compose';
 import { defaultTheme } from '../../themes/theme';
-import EventBus from '../../utils/eventBus';
 
 export interface TabsProps extends BasePropsWithoutAttr {
   children: React.ReactElement<TabProps>[];
@@ -32,9 +31,20 @@ class Tabs extends React.Component<TabsProps> {
     theme: defaultTheme,
   };
 
-  public componentDidMount(): void {
-    const { value } = this.props;
-    EventBus.emit('TabItemChange', value);
+  public getTab = () => {
+    const { children, value: currentValue } = this.props;
+    return React.Children.map(children as React.ReactElement[], child => {
+      const { label, value, ...rest } = child.props;
+      const props = {
+        label,
+        value,
+        active: value === currentValue,
+        ...rest
+      };
+      return (
+        <Tab {...props} />
+      );
+    });
   };
 
   public render(): React.ReactElement {
@@ -50,7 +60,7 @@ class Tabs extends React.Component<TabsProps> {
          { children }
         </TabsScroll>
         <TabWrapper>
-          { children }
+          { this.getTab() }
         </TabWrapper>
       </TabsNav>
     );

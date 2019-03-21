@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TabProps } from './tab';
 import { TabsWrapper, TabItem, TabInkBar, TabExtra } from './tabs.styled';
-import EventBus from '../../utils/eventBus';
 
 interface TabsScrollProps extends BasePropsWithoutAttr {
   children: React.ReactElement<TabProps>[];
@@ -28,7 +27,6 @@ class TabsScroll extends React.Component<TabsScrollProps> {
     if (onChange) {
       onChange(value);
       this.handleTabInkChange(value);
-      EventBus.emit('TabItemChange', value);
     }
   };
 
