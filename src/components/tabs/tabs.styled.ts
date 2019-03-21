@@ -32,3 +32,15 @@ export const TabInkBar = styled.div`
   z-index: 0;
   transition: 0.3s ease-in-out;
 `;
+
+export const TabExtra = styled.div`
+  label: ${componentName}-extra;
+  display: flex;
+  align-items: center;
+  max-height: 42px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0 0.2em;
+`;

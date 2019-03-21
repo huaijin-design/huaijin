@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { TabProps } from './tab';
-import { TabsWrapper, TabItem, TabInkBar } from './tabs.styled';
+import { TabsWrapper, TabItem, TabInkBar, TabExtra } from './tabs.styled';
 import EventBus from '../../utils/eventBus';
 
 interface TabsScrollProps extends BasePropsWithoutAttr {
   children: React.ReactElement<TabProps>[];
   value: string | number;
   onChange: (value: string | number) => void;
+  extra?: React.ReactNode;
 }
 
 class TabsScroll extends React.Component<TabsScrollProps> {
@@ -42,7 +43,7 @@ class TabsScroll extends React.Component<TabsScrollProps> {
 
   public render(): React.ReactElement {
     const { width, left } = this.state;
-    const { children, theme } = this.props;
+    const { children, theme, extra } = this.props;
     const scroll = React.Children.map(children, (child: React.ReactElement) => {
       this.TabItem.set(child.props.value, React.createRef());
       const handleClick = (): void => { this.handleClickItem(child.props.value); };
@@ -55,6 +56,13 @@ class TabsScroll extends React.Component<TabsScrollProps> {
     return (
       <TabsWrapper>
         { scroll }
+        {
+          extra && (
+            <TabExtra>
+              { extra }
+            </TabExtra>
+          )
+        }
         <TabInkBar
           theme={theme}
           style={{

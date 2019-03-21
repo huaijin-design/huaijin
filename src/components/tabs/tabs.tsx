@@ -13,6 +13,7 @@ export interface TabsProps extends BasePropsWithoutAttr {
   children: React.ReactElement<TabProps>[];
   value: string | number;
   onChange: (value: string | number) => void;
+  extra?: React.ReactNode;
 }
 
 @compose(
@@ -37,13 +38,14 @@ class Tabs extends React.Component<TabsProps> {
   };
 
   public render(): React.ReactElement {
-    const { theme, children, value, onChange } = this.props;
+    const { theme, children, value, onChange, extra } = this.props;
     return (
       <TabsNav>
         <TabsScroll
           value={value}
           onChange={onChange}
           theme={theme}
+          extra={extra}
         >
          { children }
         </TabsScroll>

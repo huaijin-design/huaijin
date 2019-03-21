@@ -1,21 +1,17 @@
-interface Listeners {
-  [type: string]: ((...args: any) => any)[];
-}
-
 class EventEmitter {
-  public listeners: Listeners = {};
+  public listeners = new Map();
 
-  public on(type: string, callback: (...args: any) => any): () => void {
-    const callbackArray = this.listeners[type] || [];
+  public on(type: any, callback: (...args: any) => any): () => void {
+    const callbackArray = this.listeners.get(type) || [];
     callbackArray.push(callback);
-    this.listeners[type] = callbackArray;
+    this.listeners.set(type, callbackArray);
     return () => {
       this.remove(type);
     };
   }
 
-  public emit(type: string, ...args: any): void {
-    const callbackArray = this.listeners[type];
+  public emit(type: any, ...args: any): void {
+    const callbackArray = this.listeners.get(type);
     if (Array.isArray(callbackArray)) {
       for (let i = 0; i < callbackArray.length; i++) {
         const callback = callbackArray[i];
@@ -26,8 +22,8 @@ class EventEmitter {
     }
   }
 
-  public remove(type: string): void {
-    if (this.listeners[type]) delete this.listeners[type];
+  public remove(type: any): void {
+    if (this.listeners.has(type)) this.listeners.delete(type);
   }
 }
 
