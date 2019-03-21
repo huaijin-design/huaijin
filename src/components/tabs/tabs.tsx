@@ -23,8 +23,8 @@ class Tabs extends React.Component<TabsProps> {
   public static Tab = Tab;
 
   public static propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onChange: PropTypes.func.isRequired,
   };
 
   public static defaultProps = {
@@ -33,7 +33,7 @@ class Tabs extends React.Component<TabsProps> {
 
   public getTab = () => {
     const { children, value: currentValue } = this.props;
-    return React.Children.map(children as React.ReactElement[], child => {
+    return React.Children.map(children as React.ReactElement<TabProps>[], child => {
       const { label, value, ...rest } = child.props;
       const props = {
         label,
