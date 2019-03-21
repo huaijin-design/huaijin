@@ -15,9 +15,9 @@ export const TabsContainer = styled.section<TabsContainerProps>`
   label: ${componentName};
   overflow: hidden;
   flex-shrink: 0;
-  width: 100%;
   transition: 0.3s ease-in-out;
+  width: ${({ active }) => (active ? '100%' : 0)};
   opacity: ${({ active }) => (active ? 1 : 0)};
-  height: ${({ active }) => (active ? '100%' : 0)};
-  margin-left: ${({ active }) => (active ? 0 : '-100%')};
+  visibility: ${({ active }) => (active ? 'visible' : 'hidden')};
+  transform: translate3d(0, ${({ active }) => (active ? 0 : '100%')}, 0);
 `;
