@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'enzyme';
 import { Tabs } from '..';
 
 describe('Tabs', () => {
   it('renders correctly', () => {
-    const node = mount(
+    const node = render(
       <Tabs value="tab1" onChange={() => {}}>
         <Tabs.Tab label="tab1" value="tab1">
           tab1 content
