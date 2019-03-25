@@ -22,21 +22,21 @@ export const defaultTheme = {
 };
 
 export interface Theme {
-  fontSize: {
-    small: string;
-    default: string;
-    large: string;
+  fontSize?: {
+    small?: string;
+    default?: string;
+    large?: string;
   };
-  fontFamily: string;
-  color: {
-    white: string;
-    grey: string;
-    primary: string;
-    success: string;
-    warning: string;
-    danger: string;
-    dark: string;
-    disabled: string;
+  fontFamily?: string;
+  color?: {
+    white?: string;
+    grey?: string;
+    primary?: string;
+    success?: string;
+    warning?: string;
+    danger?: string;
+    dark?: string;
+    disabled?: string;
   };
 }
 

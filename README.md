@@ -9,14 +9,14 @@
 ## TODO
 
 - [x] Markdown - TODO - test
-- [x] Huaijin - TODO - test
+- [x] Huaijin
 - [x] Figure
 - [ ] Layout
 - [ ] Toggle
 - [ ] Form
 - [x] Button
 - [x] Input
-- [x] Tabs - TODO - test
+- [x] Tabs
 - [ ] Switch
 - [ ] Radio
 - [ ] Checkbox
