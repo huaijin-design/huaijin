@@ -20,7 +20,7 @@ class TabsScroll extends React.Component<TabsScrollProps> {
   public componentDidMount(): void {
     const { value } = this.props;
     this.handleTabInkChange(value);
-  };
+  }
 
   public handleClickItem = (value: string | number) => {
     const { onChange } = this.props;
@@ -31,8 +31,12 @@ class TabsScroll extends React.Component<TabsScrollProps> {
   };
 
   public handleTabInkChange = (value: string | number) => {
-    const { width, left } = this.TabItem.get(value).current.getBoundingClientRect();
-    const { left: parentLeft } = this.TabItem.get(value).current.parentElement.getBoundingClientRect();
+    const { width, left } = this.TabItem.get(
+      value,
+    ).current.getBoundingClientRect();
+    const { left: parentLeft } = this.TabItem.get(
+      value,
+    ).current.parentElement.getBoundingClientRect();
     this.setState({
       width: `calc(${width}px - 32px + 0.4em)`,
       left: `${left - parentLeft}`,
@@ -44,23 +48,22 @@ class TabsScroll extends React.Component<TabsScrollProps> {
     const { children, theme, extra } = this.props;
     const scroll = React.Children.map(children, (child: React.ReactElement) => {
       this.TabItem.set(child.props.value, React.createRef());
-      const handleClick = (): void => { this.handleClickItem(child.props.value); };
+      const handleClick = (): void => {
+        this.handleClickItem(child.props.value);
+      };
       return (
-        <TabItem ref={this.TabItem.get(child.props.value)} onClick={handleClick}>
-          { child.props.label }
+        <TabItem
+          ref={this.TabItem.get(child.props.value)}
+          onClick={handleClick}
+        >
+          {child.props.label}
         </TabItem>
       );
     });
     return (
       <TabsWrapper>
-        { scroll }
-        {
-          extra && (
-            <TabExtra>
-              { extra }
-            </TabExtra>
-          )
-        }
+        {scroll}
+        {extra && <TabExtra>{extra}</TabExtra>}
         <TabInkBar
           theme={theme}
           style={{
@@ -70,7 +73,7 @@ class TabsScroll extends React.Component<TabsScrollProps> {
         />
       </TabsWrapper>
     );
-  };
-};
+  }
+}
 
 export default TabsScroll;

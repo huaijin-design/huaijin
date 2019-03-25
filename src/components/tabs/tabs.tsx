@@ -5,7 +5,6 @@ import Tab, { TabProps } from './tab';
 import TabsScroll from './tabsScroll';
 import { TabsNav } from './tabs.styled';
 import { TabWrapper } from './tab.styled';
-import compose from '../../utils/compose';
 import { defaultTheme } from '../../themes/theme';
 
 export interface TabsProps extends BasePropsWithoutAttr {
@@ -15,56 +14,55 @@ export interface TabsProps extends BasePropsWithoutAttr {
   extra?: React.ReactNode;
 }
 
-@compose(
-  withTheme,
-)
-class Tabs extends React.Component<TabsProps> {
-
-  public static Tab = Tab;
-
-  public static propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    onChange: PropTypes.func.isRequired,
-  };
-
-  public static defaultProps = {
-    theme: defaultTheme,
-  };
+class TabsComponent extends React.Component<TabsProps> {
+  public static Tab = Tab as React.FunctionComponent<TabProps>;
 
   public getTab = () => {
     const { children, value: currentValue } = this.props;
-    return React.Children.map(children as React.ReactElement<TabProps>[], child => {
-      const { label, value, ...rest } = child.props;
-      const props = {
-        label,
-        value,
-        active: value === currentValue,
-        ...rest
-      };
-      return (
-        <Tab {...props} />
-      );
-    });
+    return React.Children.map(
+      children as React.ReactElement<TabProps>[],
+      child => {
+        const { label, value, ...rest } = child.props;
+        const props = {
+          label,
+          value,
+          active: value === currentValue,
+          ...rest,
+        };
+        return <Tab {...props} />;
+      },
+    );
   };
 
   public render(): React.ReactElement {
     const { theme, children, value, onChange, extra } = this.props;
     return (
-      <TabsNav>
+      <TabsNav theme={theme}>
         <TabsScroll
           value={value}
           onChange={onChange}
           theme={theme}
           extra={extra}
         >
-         { children }
+          {children}
         </TabsScroll>
-        <TabWrapper>
-          { this.getTab() }
-        </TabWrapper>
+        <TabWrapper>{this.getTab()}</TabWrapper>
       </TabsNav>
     );
-  };
+  }
+}
+
+const Tabs = withTheme(TabsComponent) as React.FunctionComponent<TabsProps> & {
+  Tab: typeof Tab;
+};
+
+Tabs.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+Tabs.defaultProps = {
+  theme: defaultTheme,
 };
 
 export default Tabs;

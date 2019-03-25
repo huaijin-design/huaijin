@@ -3,6 +3,7 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
   },
+  setupFilesAfterEnv: ['<rootDir>/test/setupTests.js'],
   coverageDirectory: './coverage/',
   collectCoverage: true,
   coveragePathIgnorePatterns: ['/node_modules/', '/src/index.ts'],
