@@ -1,46 +1,60 @@
 import styled, { CreateStyled } from '@emotion/styled';
-import { em as emBase } from 'polished';
-import { fonts, colors } from './variable';
-
-export const defaultTheme = {
-  fontSize: {
-    small: fonts.size.small,
-    default: fonts.size.default,
-    large: fonts.size.large,
-  },
-  fontFamily: fonts.family.body,
-  color: {
-    white: colors.white,
-    grey: colors.grey,
-    primary: colors.primary,
-    success: colors.success,
-    warning: colors.warning,
-    danger: colors.danger,
-    dark: colors.dark,
-    disabled: colors.disabledColor,
-  },
-};
+import { transparentize } from 'polished';
+import { fonts, colors, boxShadow, border } from './variable';
 
 export interface Theme {
-  fontSize: {
-    small: string;
-    default: string;
-    large: string;
-  };
-  fontFamily: string;
-  color: {
-    white: string;
-    grey: string;
-    primary: string;
-    success: string;
-    warning: string;
-    danger: string;
-    dark: string;
-    disabled: string;
-  };
+  'font-size-small': string;
+  'font-size-default': string;
+  'font-size-large': string;
+  'font-family': string;
+  'color-white': string;
+  'color-grey': string;
+  'color-primary': string;
+  'color-success': string;
+  'color-warning': string;
+  'color-danger': string;
+  'color-dark': string;
+  'color-disabled': string;
+  'box-shadow-active': string;
+  'box-shadow-ghost-active': string;
+  'border-default': string;
 }
 
-export const em = (pxval: string | number): string =>
-  emBase(pxval, defaultTheme.fontSize.default);
+export const defaultTheme: Theme = {
+  'font-size-small': fonts.size.small,
+  'font-size-default': fonts.size.default,
+  'font-size-large': fonts.size.large,
+  'font-family': fonts.family.body,
+  'color-white': colors.white,
+  'color-grey': colors.grey,
+  'color-primary': colors.primary,
+  'color-success': colors.success,
+  'color-warning': colors.warning,
+  'color-danger': colors.danger,
+  'color-dark': colors.dark,
+  'color-disabled': colors.disabled,
+  'box-shadow-active': boxShadow.active,
+  'box-shadow-ghost-active': boxShadow.ghostActive,
+  'border-default': border.default,
+};
+
+export function variable(
+  vars: keyof Theme,
+  property: string,
+  alpha: number = 0,
+): string {
+  return `
+  ${property}: ${
+    property.indexOf('color') > -1
+      ? `rgba(${defaultTheme[vars]}, ${1 - alpha})`
+      : defaultTheme[vars]
+  };
+  ${property}: ${
+    property.indexOf('color') > -1
+      ? `rgba(var(--${vars}), ${1 - alpha})`
+      : `var(--${vars})`
+  };
+  `;
+}
 
 export default styled as CreateStyled<Theme>;

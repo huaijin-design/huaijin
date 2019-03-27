@@ -1,7 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core';
-import { transparentize } from 'polished';
-
-import styled, { Theme } from '../../themes/theme';
+import styled, { variable } from '../../themes/theme';
 import ButtonBase, { ButtonProps } from './button';
 
 export const componentName = 'hj-button';
@@ -14,7 +12,7 @@ const resetStyles = css`
   border: none;
 `;
 
-const baseStyles = ({ theme }: ButtonProps): SerializedStyles => css`
+const baseStyles = (): SerializedStyles => css`
   label: ${componentName};
   display: inline-block;
   cursor: pointer;
@@ -22,14 +20,14 @@ const baseStyles = ({ theme }: ButtonProps): SerializedStyles => css`
   user-select: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  font-size: ${(theme as Theme).fontSize.default};
   font-weight: 300;
-  font-family: ${(theme as Theme).fontFamily};
   line-height: 1.3;
-  color: ${(theme as Theme).color.dark};
   background: transparent;
   position: relative;
   margin: 0.3em;
+  ${variable('font-size-default', 'font-size')}
+  ${variable('font-family', 'font-family')}
+  ${variable('color-dark', 'color')}
   > .hj-button-main {
     position: relative;
     z-index: 2;
@@ -43,7 +41,7 @@ const baseStyles = ({ theme }: ButtonProps): SerializedStyles => css`
     right: -0.2em;
     bottom: 0;
     transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
-    background-color: ${transparentize(0.5, (theme as Theme).color.primary)};
+    ${variable('color-primary', 'background-color', 0.5)}
   }
   &:hover {
     &:after {
@@ -52,9 +50,8 @@ const baseStyles = ({ theme }: ButtonProps): SerializedStyles => css`
   }
   &:active {
     &:after {
-      background-color: ${transparentize(0.4, (theme as Theme).color.primary)};
-      box-shadow: 0 0 0 3px
-        ${transparentize(0.8, (theme as Theme).color.primary)};
+      ${variable('color-primary', 'background-color', 0.4)}
+      ${variable('box-shadow-active', 'box-shadow')}
     }
   }
 `;
@@ -78,31 +75,30 @@ const primaryStyles = ({ primary }: ButtonProps): StylesCss =>
     }
   `;
 
-const ghostStyles = ({ theme, ghost }: ButtonProps): StylesCss =>
+const ghostStyles = ({ ghost }: ButtonProps): StylesCss =>
   ghost &&
   css`
     label: ghost;
-    color: ${(theme as Theme).color.white};
+    ${variable('color-white', 'color')}
     &:after {
-      background-color: ${transparentize(0.6, (theme as Theme).color.white)};
+      ${variable('color-white', 'background-color', 0.6)}
     }
     &:active {
       &:after {
-        background-color: ${transparentize(0.999, (theme as Theme).color.dark)};
-        box-shadow: 0 0 0 3px
-          ${transparentize(0.8, (theme as Theme).color.white)};
+        ${variable('color-dark', 'background-color', 0.999)}
+        ${variable('box-shadow-ghost-active', 'box-shadow')}
       }
     }
   `;
 
-const disabledStyles = ({ theme, disabled }: ButtonProps): StylesCss =>
+const disabledStyles = ({ disabled }: ButtonProps): StylesCss =>
   disabled &&
   css`
     label: disabled;
     cursor: not-allowed;
-    color: ${(theme as Theme).color.grey};
+    ${variable('color-grey', 'color')}
     &:after {
-      background-color: ${transparentize(0.8, (theme as Theme).color.grey)};
+      ${variable('color-grey', 'background-color')}
     }
     &:hover {
       &:after {
@@ -112,13 +108,13 @@ const disabledStyles = ({ theme, disabled }: ButtonProps): StylesCss =>
     &:active {
       &:after {
         top: 60%;
-        background-color: ${transparentize(0.8, (theme as Theme).color.grey)};
+        ${variable('color-grey', 'background-color', 0.8)}
         box-shadow: none;
       }
     }
   `;
 
-const textStyles = ({ theme, text }: ButtonProps): StylesCss =>
+const textStyles = ({ text }: ButtonProps): StylesCss =>
   text &&
   css`
     label: text;
@@ -132,33 +128,29 @@ const textStyles = ({ theme, text }: ButtonProps): StylesCss =>
     }
     &:active {
       &:after {
-        background-color: ${transparentize(
-          0.4,
-          (theme as Theme).color.primary,
-        )};
-        box-shadow: 0 0 0 3px
-          ${transparentize(0.8, (theme as Theme).color.primary)};
+        ${variable('color-primary', 'background-color', 0.4)}
+        ${variable('box-shadow-active', 'box-shadow')}
       }
     }
   `;
 
-const sizeStyles = ({ theme, size }: ButtonProps): StylesCss => {
+const sizeStyles = ({ size }: ButtonProps): StylesCss => {
   if (size === 'small') {
     return css`
       label: size-small;
-      font-size: ${(theme as Theme).fontSize.small};
+      ${variable('font-size-small', 'font-size')}
     `;
   }
   if (size === 'large') {
     return css`
       label: size-large;
-      font-size: ${(theme as Theme).fontSize.large};
+      ${variable('font-size-large', 'font-size')}
     `;
   }
   return css``;
 };
 
-const circleStyles = ({ theme, circle }: ButtonProps): StylesCss =>
+const circleStyles = ({ circle }: ButtonProps): StylesCss =>
   circle &&
   css`
     label: circle;
@@ -166,11 +158,10 @@ const circleStyles = ({ theme, circle }: ButtonProps): StylesCss =>
     height: 1.3em;
     overflow: hidden;
     border-radius: 50%;
-    border: 1px solid ${transparentize(0.5, (theme as Theme).color.primary)};
+    ${variable('border-default', 'border')}
     transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
     &:active {
-      box-shadow: 0 0 0 3px
-        ${transparentize(0.8, (theme as Theme).color.primary)};
+      ${variable('box-shadow-active', 'box-shadow')}
     }
     > .hj-button-main {
       display: flex;

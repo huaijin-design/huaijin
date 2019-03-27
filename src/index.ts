@@ -4,7 +4,7 @@ import * as variable from './themes/variable';
 
 export { Button, Huaijin, Markdown, Figure, Input, Tabs } from './components';
 
-export { useModel, useToggle } from './hooks';
+export { useModel, useToggle, useTheme } from './hooks';
 
 export { theme, variable };
 
