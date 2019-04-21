@@ -65,6 +65,8 @@ const primaryStyles = ({ primary }: ButtonProps): StylesCss =>
     label: primary;
     &:after {
       top: 0;
+      left: -0.6em;
+      right: -0.6em;
     }
     &:hover {
       &:after {
