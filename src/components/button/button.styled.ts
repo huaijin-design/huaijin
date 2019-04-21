@@ -24,7 +24,7 @@ const baseStyles = (): SerializedStyles => css`
   line-height: 1.3;
   background: transparent;
   position: relative;
-  margin: 0.3em;
+  margin: 0.3em 0.6em;
   ${variable('font-size-default', 'font-size')}
   ${variable('font-family', 'font-family')}
   ${variable('color-dark', 'color')}
@@ -40,12 +40,15 @@ const baseStyles = (): SerializedStyles => css`
     left: -0.2em;
     right: -0.2em;
     bottom: 0;
+    border-radius: 10em;
     transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
     ${variable('color-primary', 'background-color', 0.5)}
   }
   &:hover {
     &:after {
       top: 0;
+      left: -0.6em;
+      right: -0.6em;
     }
   }
   &:active {
@@ -98,17 +101,19 @@ const disabledStyles = ({ disabled }: ButtonProps): StylesCss =>
     cursor: not-allowed;
     ${variable('color-grey', 'color')}
     &:after {
-      ${variable('color-grey', 'background-color')}
+      ${variable('color-grey', 'background-color', 0.5)}
     }
     &:hover {
       &:after {
         top: 60%;
+        left: -0.2em;
+        right: -0.2em;
       }
     }
     &:active {
       &:after {
         top: 60%;
-        ${variable('color-grey', 'background-color', 0.8)}
+        ${variable('color-grey', 'background-color', 0.5)}
         box-shadow: none;
       }
     }
