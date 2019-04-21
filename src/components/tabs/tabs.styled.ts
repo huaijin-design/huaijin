@@ -1,12 +1,11 @@
-import { transparentize } from 'polished';
-import styled from '../../themes/theme';
+import styled, { variable } from '../../themes/theme';
 
 export const componentName = 'hj-tabs';
 
 export const TabsNav = styled.nav`
   label: ${componentName};
   overflow: hidden;
-  color: ${({ theme }) => theme.color.dark};
+  ${variable('color-dark', 'color')};
 `;
 
 export const TabsWrapper = styled.div`
@@ -25,7 +24,7 @@ export const TabItem = styled.div`
 export const TabInkBar = styled.div`
   label: ${componentName}-inkbar;
   height: ${18 * 0.4}px;
-  background-color: ${({ theme }) => transparentize(0.5, theme.color.primary)};
+  ${variable('color-primary', 'background-color', 0.5)};
   position: absolute;
   left: calc(16px - 0.2em);
   bottom: 12px;

@@ -1,5 +1,4 @@
 import styled, { CreateStyled } from '@emotion/styled';
-import { transparentize } from 'polished';
 import { fonts, colors, boxShadow, border } from './variable';
 
 export interface Theme {
@@ -18,6 +17,7 @@ export interface Theme {
   'box-shadow-active': string;
   'box-shadow-ghost-active': string;
   'border-default': string;
+  [key: string]: string;
 }
 
 export const defaultTheme: Theme = {
@@ -38,11 +38,20 @@ export const defaultTheme: Theme = {
   'border-default': border.default,
 };
 
+/**
+ * 获取 css 变量
+ * @param vars 变量名
+ * @param property css属性 若为true只返回值(只能为rgb)
+ * @param alpha 透明度
+ */
 export function variable(
   vars: keyof Theme,
-  property: string,
+  property: string | boolean,
   alpha: number = 0,
 ): string {
+  if (typeof property === 'boolean') {
+    return `rgba(${defaultTheme[vars]}, ${1 - alpha})`;
+  }
   return `
   ${property}: ${
     property.indexOf('color') > -1

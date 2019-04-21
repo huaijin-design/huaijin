@@ -1,5 +1,4 @@
-import { transparentize } from 'polished';
-import styled from '../../themes/theme';
+import styled, { variable } from '../../themes/theme';
 
 interface InputControlProps {
   fullWidth?: boolean;
@@ -33,26 +32,25 @@ export const InputField = styled.div<InputFieldProps>`
     bottom: 0;
     pointer-events: none;
     transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
-    border-bottom: 2px solid
-      ${({ theme }) => transparentize(0.58, theme.color.dark)};
-    ${({ theme, disabled }) =>
+    border-bottom: 2px solid ${variable('color-dark', true, 0.58)};
+    ${({ disabled }) =>
       disabled &&
       `
-      border-bottom-color: ${theme.color.disabled};
+      ${variable('color-disabled', 'border-bottom-color')}
       border-bottom-style: dotted;
     `}
   }
   &:hover {
     &::before {
-      border-color: ${({ theme, disabled }) =>
-        !disabled && transparentize(0.28, theme.color.dark)};
+      border-color: ${({ disabled }) =>
+        !disabled && variable('color-dark', true, 0.28)};
     }
     & > label {
-      color: ${({ theme, isFocused, error, disabled }) =>
+      color: ${({ isFocused, error, disabled }) =>
         !isFocused &&
         !error &&
         !disabled &&
-        transparentize(0.28, theme.color.dark)};
+        variable('color-dark', true, 0.28)};
     }
   }
   &::after {
@@ -65,12 +63,12 @@ export const InputField = styled.div<InputFieldProps>`
     transform-origin: 0 0;
     transition: transform 300ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     transform: scale3d(${({ isFocused }) => (isFocused ? 1 : 0)}, 1, 1);
-    border-bottom: 2px solid ${({ theme }) => theme.color.primary};
-    ${({ theme, error }) =>
+    border-bottom: 2px solid ${variable('color-primary', true)};
+    ${({ error }) =>
       error &&
       `
       transform: scale3d(1, 1, 1);
-      border-color: ${theme.color.danger};
+      ${variable('color-danger', 'border-color')}
     `}
   }
 `;
@@ -85,20 +83,16 @@ export const InputLabel = styled.label<InputFieldProps>`
   z-index: -1;
   transform-origin: top left;
   transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1);
-  color: ${({ theme, isFocused, error }) =>
+  color: ${({ isFocused, error }) =>
     isFocused && !error
-      ? theme.color.primary
-      : transparentize(0.58, theme.color.dark)};
+      ? variable('color-primary', true)
+      : variable('color-dark', true, 0.58)};
   ${({ isFocused, value, placeholder }) =>
     (isFocused || value || placeholder) &&
     'transform: scale(0.75) translate3d(0, -24px, 0);'};
 
-  ${({ theme, error }) => error && `color: ${theme.color.danger}`}
-  ${({ theme, disabled }) =>
-    disabled &&
-    `
-    color: ${theme.color.disabled};
-  `}
+  ${({ error }) => error && variable('color-danger', 'color')}
+  ${({ disabled }) => disabled && variable('color-disabled', 'color')}
 `;
 
 export const InputBase = styled.input`

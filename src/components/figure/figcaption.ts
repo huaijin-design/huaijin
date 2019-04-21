@@ -1,7 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
-import { transparentize } from 'polished';
-import styled, { defaultTheme, Theme } from '../../themes/theme';
+import styled, { variable } from '../../themes/theme';
 import { colors } from '../../themes/variable';
 
 export const componentName = 'hj-figcaption';
@@ -10,10 +8,7 @@ export interface FigcaptionProps extends BaseProps<HTMLElement> {
   effect?: boolean;
 }
 
-const baseStyles = ({
-  theme,
-  effect,
-}: FigcaptionProps): SerializedStyles => css`
+const baseStyles = ({ effect }: FigcaptionProps): SerializedStyles => css`
   label: ${componentName};
   ${!effect &&
     `
@@ -31,7 +26,7 @@ const baseStyles = ({
       position: absolute;
       left: 40%;
       bottom: 0;
-      background-color: ${transparentize(0.8, (theme as Theme).color.primary)};
+      ${variable('color-primary', 'background-color', 0.8)}
     }
   `}
   ${effect &&
@@ -43,7 +38,7 @@ const baseStyles = ({
     top: 0;
     bottom: 0;
     padding: 0.4em 1em 0.4em 0.4em;
-    color: ${(theme as Theme).color.white};
+    ${variable('color-white', 'color')}
     text-transform: uppercase;
     opacity: 0;
     transition: opacity 0.35s, transform 0.35s;
@@ -51,16 +46,10 @@ const baseStyles = ({
   `}
 `;
 
-const StyledFigcaption = styled.figcaption`
+const Figcaption = styled.figcaption<FigcaptionProps>`
   ${baseStyles}
 `;
 
-const Figcaption = withTheme(StyledFigcaption);
-
 Figcaption.displayName = 'hj-figure';
-
-Figcaption.defaultProps = {
-  theme: defaultTheme,
-};
 
 export default Figcaption;
