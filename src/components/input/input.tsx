@@ -1,10 +1,16 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { withTheme } from 'emotion-theming';
-import { InputControl, InputField, InputLabel, InputBase, TextAreaBase } from './input.styled';
-import { defaultTheme } from '../../themes/theme';
+import {
+  InputControl,
+  InputField,
+  InputLabel,
+  InputBase,
+  TextAreaBase,
+} from './input.styled';
 
-export interface InputProps extends Omit<BaseProps<HTMLInputElement>, 'onChange'>, React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends Omit<BaseProps<HTMLInputElement>, 'onChange'>,
+    React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   placeholder?: string;
   error?: boolean;
@@ -21,7 +27,27 @@ interface InputStates {
   isFocused: boolean;
 }
 
-class InputComponent extends React.Component<InputProps, InputStates> {
+class Input extends React.Component<InputProps, InputStates> {
+  public static propTypes = {
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    error: PropTypes.bool,
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    password: PropTypes.bool,
+    number: PropTypes.bool,
+    multiline: PropTypes.bool,
+    rows: PropTypes.number,
+    fullWidth: PropTypes.bool,
+  };
+
+  public static defaultProps = {
+    value: '',
+    onChange: () => {},
+  };
+
   public constructor(props: InputProps) {
     super(props);
 
@@ -65,25 +91,28 @@ class InputComponent extends React.Component<InputProps, InputStates> {
 
   public handleFocus(): void {
     this.setState(({ isFocused }) => ({ isFocused: !isFocused }));
-  };
+  }
 
   public handleBlur(): void {
     this.setState(({ isFocused }) => ({ isFocused: !isFocused }));
-  };
+  }
 
   public render(): React.ReactElement {
     const { isFocused } = this.state;
-    const { theme, value, placeholder, error, required, disabled, multiline, rows, fullWidth } = this.props;
+    const {
+      value,
+      placeholder,
+      error,
+      required,
+      disabled,
+      multiline,
+      rows,
+      fullWidth,
+    } = this.props;
     return (
       <InputControl fullWidth={fullWidth}>
-        <InputField
-          theme={theme}
-          isFocused={isFocused}
-          error={error}
-          disabled={disabled}
-        >
+        <InputField isFocused={isFocused} error={error} disabled={disabled}>
           <InputLabel
-            theme={theme}
             isFocused={isFocused}
             value={value}
             placeholder={placeholder}
@@ -92,60 +121,33 @@ class InputComponent extends React.Component<InputProps, InputStates> {
           >
             {this.label}
           </InputLabel>
-          {
-            multiline
-              ? (
-                <TextAreaBase
-                  value={value}
-                  onChange={this.textAreaHandleChange}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  placeholder={placeholder}
-                  required={required}
-                  disabled={disabled}
-                  rows={rows}
-                />
-              )
-              : (
-                <InputBase
-                  value={value}
-                  onChange={this.handleChange}
-                  type={this.type}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  placeholder={placeholder}
-                  required={required}
-                  disabled={disabled}
-                />
-              )
-          }
+          {multiline ? (
+            <TextAreaBase
+              value={value}
+              onChange={this.textAreaHandleChange}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              placeholder={placeholder}
+              required={required}
+              disabled={disabled}
+              rows={rows}
+            />
+          ) : (
+            <InputBase
+              value={value}
+              onChange={this.handleChange}
+              type={this.type}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              placeholder={placeholder}
+              required={required}
+              disabled={disabled}
+            />
+          )}
         </InputField>
       </InputControl>
     );
   }
 }
-
-const Input = withTheme(InputComponent);
-
-Input.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  error: PropTypes.bool,
-  required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  password: PropTypes.bool,
-  number: PropTypes.bool,
-  multiline: PropTypes.bool,
-  rows: PropTypes.number,
-  fullWidth: PropTypes.bool,
-};
-
-Input.defaultProps = {
-  theme: defaultTheme,
-  value: '',
-  onChange: () => {},
-};
 
 export default Input;
